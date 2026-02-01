@@ -577,3 +577,104 @@ table th {
         flex: 1;
     }
 }
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    margin-top: 1rem;
+}
+
+#searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--color-accent);
+    border-radius: 25px;
+    background-color: white;
+    color: var(--color-text);
+    font-family: var(--font-main);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#searchInput::placeholder {
+    color: var(--color-text-light);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-width: 500px;
+    margin-top: 0.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--global--elevation-large);
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.search-results.hidden {
+    display: none;
+}
+
+.search-result-item {
+    display: block;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: background-color 0.2s ease;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background-color: var(--color-background-alt);
+}
+
+.search-result-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-primary);
+}
+
+.search-result-excerpt {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+}
+
+.search-result-date {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+}
+
+.search-no-results {
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--color-text-light);
+}
+
+/* Responsive adjustments for search */
+@media (max-width: 768px) {
+    #searchInput {
+        max-width: 100%;
+    }
+
+    .search-results {
+        max-width: 100%;
+    }
+}
