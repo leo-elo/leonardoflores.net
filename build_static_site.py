@@ -229,7 +229,10 @@ def build_site():
     html = create_html_template('Leonardo Flores', content, nav_items_home)
 
     # Fix paths for homepage
-    html = html.replace('href="../', 'href="').replace('src="../', 'src="')
+    # Fix blog post links: add posts/ prefix and .html extension
+    html = re.sub(r'href="(?:\.\./)?blog/([^/]+)/([^"]+)/"', r'href="posts/blog/\1/\2.html"', html)
+    # Fix image paths
+    html = html.replace('src="../', 'src="')
 
     with open('site/index.html', 'w', encoding='utf-8') as f:
         f.write(html)
