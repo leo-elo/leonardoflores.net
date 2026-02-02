@@ -702,8 +702,7 @@ table th {
     object-fit: contain;
     border-radius: 8px;
     box-shadow: var(--global--elevation-medium);
-    /* Fix for dark images - increase brightness slightly */
-    filter: brightness(1.1) contrast(1.05);
+    /* Images display naturally without filters for cross-browser consistency */
 }
 
 /* Post Header Styling */
