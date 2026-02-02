@@ -98,13 +98,29 @@ def scrape_all_posts():
     return all_posts
 
 def convert_url_to_local(wp_url):
-    """Convert WordPress URL to local static URL"""
-    # https://leonardoflores.net/blog/category/post-slug/ -> posts/blog/category/post-slug.html
+    """Convert WordPress URL to local static URL with new category mapping"""
+    # Category mapping: old → new
+    CATEGORY_MAP = {
+        'news': 'milestones',
+        'grants': 'milestones',
+        'publications': 'milestones',
+        'interviews': 'milestones',
+        'proposals': 'milestones',
+        'editorial-work': 'milestones',
+        'e-poetry-sites': 'resources',
+        'performances': 'creative-work',
+        'courses': 'teaching',
+        'pedagogy': 'teaching',
+        'presentations-2': 'presentations',
+        'uncategorized': 'milestones',
+    }
+
     match = re.search(r'leonardoflores\.net/blog/([^/]+)/([^/]+)/?', wp_url)
     if match:
         category = match.group(1)
         slug = match.group(2)
-        return f"posts/blog/{category}/{slug}.html"
+        new_category = CATEGORY_MAP.get(category, category)
+        return f"posts/blog/{new_category}/{slug}.html"
     return wp_url
 
 def generate_index_html(posts):
@@ -194,12 +210,17 @@ def generate_index_html(posts):
         <nav>
             <a href="about.html">About</a>
             <a href="publications.html">CV & Publications</a>
-            <a href="category/creative-work.html">Creative Work</a>
             <a href="courses.html">Courses</a>
             <a href="https://www.youtube.com/watch?v=qN9fret0PNo">My TEDx Talk</a>
             <a href="mailto:floresll@appstate.edu">Contact</a>
             <a href="calendar.html">Calendar</a>
             <a href="post-index.html">Post Index</a>
+            <a href="category/presentations.html">Presentations</a>
+            <a href="category/milestones.html">Milestones</a>
+            <a href="category/teaching.html">Teaching</a>
+            <a href="category/creative-work.html">Creative Work</a>
+            <a href="category/resources.html">Resources</a>
+            <a href="category/en-espanol.html">En Español</a>
         </nav>
     </header>
 

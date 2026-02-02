@@ -1,11 +1,21 @@
 #!/usr/bin/env python3
 """
 Build category listing pages with all posts in each category
+Updated for new category structure
 """
 import json
 import re
 from pathlib import Path
 from collections import defaultdict
+from datetime import datetime
+
+CATEGORY_NAMES = {
+    'milestones': 'Milestones',
+    'presentations': 'Presentations',
+    'creative-work': 'Creative Work',
+    'teaching': 'Teaching',
+    'resources': 'Resources',
+}
 
 def convert_url_to_local(wp_url):
     """Convert WordPress URL to local static URL"""
@@ -15,28 +25,6 @@ def convert_url_to_local(wp_url):
         slug = match.group(2)
         return f"posts/blog/{category}/{slug}.html"
     return wp_url
-
-def extract_category(wp_url):
-    """Extract category from WordPress URL"""
-    match = re.search(r'leonardoflores\.net/blog/([^/]+)/', wp_url)
-    if match:
-        return match.group(1)
-    return 'uncategorized'
-
-def format_category_name(slug):
-    """Convert slug to display name"""
-    names = {
-        'presentations-2': 'Presentations',
-        'news': 'News',
-        'creative-work': 'Creative Work',
-        'publications': 'Publications',
-        'pedagogy': 'Pedagogy',
-        'interviews': 'Interviews',
-        'editorial-work': 'Editorial Work',
-        'grants': 'Grants',
-        'courses': 'Courses',
-    }
-    return names.get(slug, slug.replace('-', ' ').title())
 
 def create_category_page_html(category_slug, category_name, posts):
     """Generate HTML for a category listing page"""
@@ -53,6 +41,15 @@ def create_category_page_html(category_slug, category_name, posts):
         </li>''')
 
     posts_html = '\n'.join(post_items)
+
+    # Build category nav links
+    cat_links = []
+    for slug, name in CATEGORY_NAMES.items():
+        if slug == category_slug:
+            cat_links.append(f'<span class="current-category">{name}</span>')
+        else:
+            cat_links.append(f'<a href="{slug}.html">{name}</a>')
+    cat_nav = ' | '.join(cat_links)
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -95,7 +92,25 @@ def create_category_page_html(category_slug, category_name, posts):
         .category-count {{
             color: var(--color-text-light);
             font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }}
+        .category-nav {{
             margin-bottom: 2rem;
+            padding: 1rem;
+            background: var(--color-background-alt);
+            border-radius: 8px;
+        }}
+        .category-nav a {{
+            color: var(--color-primary);
+            text-decoration: none;
+            padding: 0.25rem 0.5rem;
+        }}
+        .category-nav a:hover {{
+            text-decoration: underline;
+        }}
+        .current-category {{
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
         }}
     </style>
 </head>
@@ -112,18 +127,27 @@ def create_category_page_html(category_slug, category_name, posts):
         <nav>
             <a href="../about.html">About</a>
             <a href="../publications.html">CV & Publications</a>
-            <a href="creative-work.html">Creative Work</a>
             <a href="../courses.html">Courses</a>
             <a href="https://www.youtube.com/watch?v=qN9fret0PNo">My TEDx Talk</a>
             <a href="mailto:floresll@appstate.edu">Contact</a>
             <a href="../calendar.html">Calendar</a>
             <a href="../post-index.html">Post Index</a>
+            <a href="presentations.html">Presentations</a>
+            <a href="milestones.html">Milestones</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="creative-work.html">Creative Work</a>
+            <a href="resources.html">Resources</a>
+            <a href="en-espanol.html">En Español</a>
         </nav>
     </header>
 
     <main>
         <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem;">{category_name}</h2>
-        <p class="category-count">{len(posts)} posts in this category, sorted by date (newest first)</p>
+        <p class="category-count">{len(posts)} posts, sorted by date (newest first)</p>
+
+        <div class="category-nav">
+            <strong>Categories:</strong> {cat_nav}
+        </div>
 
         <ul class="category-posts">
 {posts_html}
@@ -149,20 +173,30 @@ def main():
     # Group posts by category
     categories = defaultdict(list)
     for post in posts:
-        category = extract_category(post.get('url', ''))
+        category = post.get('category', 'milestones')
         categories[category].append(post)
 
     print(f"Found {len(categories)} categories\n")
+
+    # Remove old category pages
+    old_cats = ['news', 'grants', 'publications', 'interviews', 'proposals',
+                'editorial-work', 'e-poetry-sites', 'performances', 'courses',
+                'pedagogy', 'uncategorized', 'presentations-2']
+    for old_cat in old_cats:
+        old_file = Path(f'category/{old_cat}.html')
+        if old_file.exists():
+            old_file.unlink()
+            print(f"Removed old category page: {old_file}")
 
     # Create category directory if needed
     Path('category').mkdir(exist_ok=True)
 
     # Generate each category page
-    for category_slug, category_posts in categories.items():
-        category_name = format_category_name(category_slug)
+    for category_slug in CATEGORY_NAMES.keys():
+        category_posts = categories.get(category_slug, [])
+        category_name = CATEGORY_NAMES[category_slug]
 
         # Sort by date (newest first)
-        from datetime import datetime
         def get_sort_date(post):
             dt = post.get('datetime', '')
             if dt:

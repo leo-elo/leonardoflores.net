@@ -39,7 +39,25 @@
         .category-count {
             color: var(--color-text-light);
             font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .category-nav {
             margin-bottom: 2rem;
+            padding: 1rem;
+            background: var(--color-background-alt);
+            border-radius: 8px;
+        }
+        .category-nav a {
+            color: var(--color-primary);
+            text-decoration: none;
+            padding: 0.25rem 0.5rem;
+        }
+        .category-nav a:hover {
+            text-decoration: underline;
+        }
+        .current-category {
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
         }
     </style>
 </head>
@@ -56,18 +74,27 @@
         <nav>
             <a href="../about.html">About</a>
             <a href="../publications.html">CV & Publications</a>
-            <a href="creative-work.html">Creative Work</a>
             <a href="../courses.html">Courses</a>
             <a href="https://www.youtube.com/watch?v=qN9fret0PNo">My TEDx Talk</a>
             <a href="mailto:floresll@appstate.edu">Contact</a>
             <a href="../calendar.html">Calendar</a>
             <a href="../post-index.html">Post Index</a>
+            <a href="../category/presentations.html">Presentations</a>
+            <a href="../category/milestones.html">Milestones</a>
+            <a href="../category/teaching.html">Teaching</a>
+            <a href="../category/creative-work.html">Creative Work</a>
+            <a href="../category/resources.html">Resources</a>
+            <a href="en-espanol.html">En Español</a>
         </nav>
     </header>
 
     <main>
         <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem;">Resources</h2>
-        <p class="category-count">2 posts in this category, sorted by date (newest first)</p>
+        <p class="category-count">3 posts, sorted by date (newest first)</p>
+
+        <div class="category-nav">
+            <strong>Categories:</strong> <a href="milestones.html">Milestones</a> | <a href="presentations.html">Presentations</a> | <a href="creative-work.html">Creative Work</a> | <a href="teaching.html">Teaching</a> | <span class="current-category">Resources</span>
+        </div>
 
         <ul class="category-posts">
         <li class="category-post-item">
@@ -77,6 +104,10 @@
         <li class="category-post-item">
             <a href="../posts/blog/resources/electronic-literature-publications-and-open-calls-may-2023-roundup.html" class="category-post-link">Electronic Literature Publications and Open Calls: May 2023 Roundup</a>
             <span class="category-post-date">May 16, 2023</span>
+        </li>
+        <li class="category-post-item">
+            <a href="../posts/blog/resources/new-project-i-%e2%99%a5-e-poetry.html" class="category-post-link">New Project: I ♥ E-Poetry</a>
+            <span class="category-post-date">December 22, 2011</span>
         </li>
         </ul>
     </main>

@@ -37,8 +37,8 @@ body {
 
 /* Header */
 header {
-    background-color: #F2AF29;
-    color: var(--color-text);
+    background-color: #000000;
+    color: white;
     padding: 2rem 1.5rem;
     border-bottom: 4px solid var(--color-accent);
 }
@@ -59,17 +59,17 @@ header h1 {
 }
 
 header h1 a {
-    color: var(--color-text);
+    color: white;
     text-decoration: none;
 }
 
 header h1 a:hover {
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 header .tagline {
     font-size: 1rem;
-    color: var(--color-text-light);
+    color: #CCC;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
 }
@@ -83,7 +83,7 @@ nav {
 }
 
 nav a {
-    color: var(--color-text);
+    color: white;
     text-decoration: none;
     font-size: 1rem;
     padding: 0.5rem 0;
@@ -92,7 +92,7 @@ nav a {
 }
 
 nav a:hover {
-    border-bottom-color: var(--color-primary);
+    border-bottom-color: var(--color-accent);
 }
 
 /* Main Content */
@@ -691,7 +691,7 @@ table th {
 /* Featured Image in Blog Posts */
 .featured-image-container {
     width: 90%;
-    margin: 2rem auto;
+    margin: 1rem auto 0.5rem auto;
     text-align: center;
 }
 
@@ -708,8 +708,8 @@ table th {
 /* Post Header Styling */
 .post-header {
     text-align: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     border-bottom: 2px solid var(--color-accent);
 }
 
@@ -795,7 +795,8 @@ footer p {
 
 .header-top #searchInput {
     background-color: white;
-    border-color: var(--color-text-light);
+    border-color: #666;
+    color: var(--color-text);
 }
 
 /* Categories at bottom of posts */
@@ -805,4 +806,46 @@ footer p {
     border-top: 1px solid var(--color-accent);
     text-align: left;
     font-size: 0.95rem;
+}
+
+/* Page Content Styling (matches post styling) */
+.page-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.entry-content {
+    line-height: 1.8;
+}
+
+.entry-content p {
+    margin-bottom: 1.5rem;
+}
+
+.entry-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+.entry-content a:hover {
+    color: var(--color-secondary);
+}
+
+.entry-content ul,
+.entry-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.entry-content li {
+    margin-bottom: 0.5rem;
+}
+
+.entry-content h2,
+.entry-content h3,
+.entry-content h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
 }
