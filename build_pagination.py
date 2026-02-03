@@ -282,7 +282,7 @@ def create_page_html(posts, page_num, total_pages):
                 <div id="searchResults" class="search-results hidden"></div>
             </div>
         </div>
-        <p class="tagline">Professor & Chair, Department of English at Appalachian State University</p>
+        <p class="tagline">Scholar, Academic Leader, Creator</p>
         <nav>
             <a href="about.html">About</a>
             <a href="publications.html">CV & Publications</a>

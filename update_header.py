@@ -43,7 +43,7 @@ def update_header(html_file):
                 </button>
             </div>
         </div>
-        <p class="tagline">Professor & Chair, Department of English at Appalachian State University</p>
+        <p class="tagline">Scholar, Academic Leader, Creator</p>
         <div class="search-container">
             <input type="search" id="searchInput" placeholder="Search posts..." aria-label="Search posts">
             <div id="searchResults" class="search-results hidden"></div>
