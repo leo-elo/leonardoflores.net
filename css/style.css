@@ -690,8 +690,9 @@ table th {
 
 /* Featured Image in Blog Posts */
 .featured-image-container {
-    width: 90%;
-    margin: 1rem auto 0.5rem auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 
@@ -700,6 +701,7 @@ table th {
     height: auto;
     max-width: 100%;
     object-fit: contain;
+    display: block;
     border-radius: 8px;
     box-shadow: var(--global--elevation-medium);
     /* Images display naturally without filters for cross-browser consistency */
@@ -707,25 +709,33 @@ table th {
 
 /* Post Header Styling */
 .post-header {
+    background-color: #F2AF29;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 1rem 2rem;
     text-align: center;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--color-accent);
+    margin-bottom: 0;
 }
 
 .post-title {
     font-family: var(--font-heading);
     font-size: 2.5rem;
     color: var(--color-primary);
-    margin-bottom: 1rem;
+    margin: 0;
     line-height: 1.2;
 }
 
 /* Post Content Styling */
 main article {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main article .post-content {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 10px 1.5rem 2rem 1.5rem;
 }
 
 main article h4 {
