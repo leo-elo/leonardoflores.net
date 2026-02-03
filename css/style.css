@@ -82,7 +82,7 @@ header .tagline {
 }
 
 /* Navigation */
-nav {
+header nav {
     display: none;
     position: absolute;
     top: 100%;
@@ -95,19 +95,16 @@ nav {
     gap: 0;
 }
 
-nav.active {
+header nav.active {
     display: flex;
 }
 
-nav a {
+header nav a {
     padding: 0.75rem 1.5rem;
     max-width: var(--max-width);
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
-}
-
-nav a {
     color: white;
     text-decoration: none;
     font-size: 1rem;
@@ -115,11 +112,11 @@ nav a {
     transition: background-color 0.2s;
 }
 
-nav a:last-child {
+header nav a:last-child {
     border-bottom: none;
 }
 
-nav a:hover {
+header nav a:hover {
     background-color: #222;
 }
 
