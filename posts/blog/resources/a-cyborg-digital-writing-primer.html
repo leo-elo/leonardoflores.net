@@ -108,81 +108,84 @@ If the code becomes too long for the AI to read, focus on the portions you want 
 Prompt: "Generate HTML code to produce a page in which there's a word centered on the screen. When the user clicks or touches the word, it changes to the next word in a sequence of 10 words. Use lorem ipsum text for the words."
 
 Here's the output produced by ChatGPT 4o.
-<p style="padding-left: 40px;"><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Word Sequence</title>
-<style>
-body, html {
-height: 100%;
-margin: 0;
-display: flex;
-justify-content: center;
-align-items: center;
-font-family: Arial, sans-serif;
-background-color: #f0f0f0;
-}
-#word {
-font-size: 2em;
-cursor: pointer;
-}
-</style>
-</head>
-<body>
-<div id="word">Lorem</div>
-<script>
-const words = ["Lorem", "Ipsum", "Dolor", "Sit", "Amet", "Consectetur", "Adipiscing", "Elit", "Integer", "Nec"];
-let currentIndex = 0;</p>
-<p style="padding-left: 40px;">document.getElementById("word").addEventListener("click", () => {
-currentIndex = (currentIndex + 1) % words.length;
-document.getElementById("word").textContent = words[currentIndex];
-});
-</script>
-</body>
-</html></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Word Sequence&lt;/title&gt;
+    &lt;style&gt;
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        #word {
+            font-size: 2em;
+            cursor: pointer;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="word"&gt;Lorem&lt;/div&gt;
+    &lt;script&gt;
+        const words = ["Lorem", "Ipsum", "Dolor", "Sit", "Amet", "Consectetur", "Adipiscing", "Elit", "Integer", "Nec"];
+        let currentIndex = 0;
+
+        document.getElementById("word").addEventListener("click", () =&gt; {
+            currentIndex = (currentIndex + 1) % words.length;
+            document.getElementById("word").textContent = words[currentIndex];
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 Notice that the lorem ipsum text is in the line that begins with the initial word in the "div" and then the sequence in the "const words." If you modify that text and save it, it will produce the sequence of words or phrases you write. Here's my modification.
-<p style="padding-left: 40px;"><body>
-<div id="word">Cyborg Digital Writing</div>
-<script>const words = ["I", "love", "creating", "new", "frameworks", "for", "digital", "writing.", "Don't", "you?"];</p>
+<pre><code>&lt;body&gt;
+    &lt;div id="word"&gt;Cyborg Digital Writing&lt;/div&gt;
+    &lt;script&gt;
+        const words = ["I", "love", "creating", "new", "frameworks", "for", "digital", "writing.", "Don't", "you?"];</code></pre>
 When you save the work, it works, but with the current configuration, the first click will begin displaying the word "love" instead of "I".
 
 A simple way to correct it is to prompt the AI with the following: "Make it so the first click goes to the first word in the words sequence in this code: [copy-paste the complete code]" which yields the following results:
-<p style="padding-left: 40px;"><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Word Sequence</title>
-<style>
-body, html {
-height: 100%;
-margin: 0;
-display: flex;
-justify-content: center;
-align-items: center;
-font-family: Arial, sans-serif;
-background-color: #f0f0f0;
-}
-#word {
-font-size: 2em;
-cursor: pointer;
-}
-</style>
-</head>
-<body>
-<div id="word">Cyborg Digital Writing</div>
-<script>
-const words = ["I", "love", "creating", "new", "frameworks", "for", "digital", "writing.", "Don't", "you?"];
-let currentIndex = -1; // Start at -1 so the first click sets it to 0</p>
-<p style="padding-left: 40px;">document.getElementById("word").addEventListener("click", () => {
-currentIndex = (currentIndex + 1) % words.length;
-document.getElementById("word").textContent = words[currentIndex];
-});
-</script>
-</body>
-</html></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Word Sequence&lt;/title&gt;
+    &lt;style&gt;
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        #word {
+            font-size: 2em;
+            cursor: pointer;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="word"&gt;Cyborg Digital Writing&lt;/div&gt;
+    &lt;script&gt;
+        const words = ["I", "love", "creating", "new", "frameworks", "for", "digital", "writing.", "Don't", "you?"];
+        let currentIndex = -1; // Start at -1 so the first click sets it to 0
+
+        document.getElementById("word").addEventListener("click", () =&gt; {
+            currentIndex = (currentIndex + 1) % words.length;
+            document.getElementById("word").textContent = words[currentIndex];
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 And that fixes it! This is a simple way to use natural language in an AI system to generate functional code.
 
 However, take a moment to read the code and begin to learn how it operates. If you notice, the new code only modified one line "let currentIndex = -1; // Start at -1 so the first click sets it to 0" and documented the change. Next time, you can simply set currentIndex = -1, instead of currentIndex=0 for a simpler fix you can do yourself.
@@ -191,16 +194,16 @@ And these are the first steps towards increasing your code literacy and creating
 
 Some final touches:
 <ul>
- 	<li>Change the title for the piece by modifying the line "<title>Word Sequence</title>" to whatever title you want to give it (I'm changing it to "Cyborg Digital Writing").</li>
+ 	<li>Change the title for the piece by modifying the line <code>&lt;title&gt;Word Sequence&lt;/title&gt;</code> to whatever title you want to give it (I'm changing it to "Cyborg Digital Writing").</li>
  	<li>Add some documentation to give credit where credit is due by inserting the following code in a new line after the title tag and modifying it with your details. (Note that I have included a short version of <a href="https://opensource.org/license/mit">the MIT license</a>):</li>
 </ul>
-<!-- “Cyborg Digital Writing” Copyright (C) 2024 Leonardo Flores
+<pre><code>&lt;!-- "Cyborg Digital Writing" Copyright (C) 2024 Leonardo Flores
 
 Copying and distribution of this file, with or without modification, are permitted in any medium without royalty provided the copyright notice and this notice are preserved. This file is offered as-is, without any warranty.
 
 This is a minimalist digital writing framework created on June 24, 2024 by Leonardo Flores using ChatGPT 4o.
 
--->
+--&gt;</code></pre>
 <ul>
  	<li>Here's <a href="https://iloveepoetry.org/creative/sequence.html">a link to the work</a>.</li>
  	<li>Now, play with this simple code and develop it in a variety of ways, such as:
