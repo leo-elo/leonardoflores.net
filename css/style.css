@@ -712,6 +712,7 @@ table th {
     background-color: #F2AF29;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+    margin-top: 10px;
     padding: 1rem 2rem;
     text-align: center;
     margin-bottom: 0;
