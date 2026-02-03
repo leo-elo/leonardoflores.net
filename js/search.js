@@ -129,9 +129,36 @@ function initSearch() {
     });
 }
 
+// Mobile menu toggle
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('header nav');
+
+    if (!menuToggle || !nav) {
+        return;
+    }
+
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });
+}
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSearch);
+    document.addEventListener('DOMContentLoaded', () => {
+        initSearch();
+        initMobileMenu();
+    });
 } else {
     initSearch();
+    initMobileMenu();
 }
