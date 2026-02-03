@@ -11,10 +11,8 @@ def get_nav_html(depth=0):
 
     return f'''<nav>
             <a href="{prefix}about.html">About</a>
-            <a href="{prefix}publications.html">CV & Publications</a>
             <a href="{prefix}courses.html">Courses</a>
             <a href="https://www.youtube.com/watch?v=qN9fret0PNo">My TEDx Talk</a>
-            <a href="mailto:floresll@appstate.edu">Contact</a>
             <a href="{prefix}calendar.html">Calendar</a>
             <a href="{prefix}post-index.html">Post Index</a>
             <a href="{prefix}category/presentations.html">Presentations</a>

@@ -209,10 +209,8 @@ def generate_index_html(posts):
         <p class="tagline">Scholar, Academic Leader, Creator</p>
         <nav>
             <a href="about.html">About</a>
-            <a href="publications.html">CV & Publications</a>
             <a href="courses.html">Courses</a>
             <a href="https://www.youtube.com/watch?v=qN9fret0PNo">My TEDx Talk</a>
-            <a href="mailto:floresll@appstate.edu">Contact</a>
             <a href="calendar.html">Calendar</a>
             <a href="post-index.html">Post Index</a>
             <a href="category/presentations.html">Presentations</a>
