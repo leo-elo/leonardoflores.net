@@ -847,12 +847,64 @@ main article a:hover {
 
 /* Ensure consistent footer across all pages */
 footer {
-    background-color: var(--color-background);
-    color: var(--color-text);
-    text-align: center;
-    padding: 2rem 1.5rem;
+    background-color: #000000;
+    color: white;
+    padding: 1.5rem 2rem;
     margin-top: 4rem;
     border-top: 4px solid var(--color-accent);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.footer-left {
+    color: white;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-center a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-center a:hover {
+    text-decoration: underline;
+}
+
+.footer-right .search-container {
+    margin: 0;
+}
+
+.footer-right #footerSearchInput {
+    width: 200px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border: 2px solid #666;
+    border-radius: 20px;
+    background-color: white;
+    color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-right #footerSearchInput {
+        width: 100%;
+        max-width: 250px;
+    }
 }
 
 footer p {

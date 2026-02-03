@@ -276,10 +276,13 @@ def create_page_html(posts, page_num, total_pages):
 <body>
 <header>
         <div class="header-top">
-            <h1><a href="index.html">Leonardo Flores</a></h1>
-            <div class="search-container">
-                <input type="search" id="searchInput" placeholder="Search posts..." aria-label="Search posts">
-                <div id="searchResults" class="search-results hidden"></div>
+            <div class="header-title-menu">
+                <h1><a href="index.html">Leonardo Flores</a></h1>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
         <p class="tagline">Scholar, Academic Leader, Creator</p>
@@ -307,7 +310,16 @@ def create_page_html(posts, page_num, total_pages):
     </main>
 
     <footer>
-        <p>&copy; 2026 Leonardo Flores</p>
+        <div class="footer-content">
+            <div class="footer-left">© 2026 Leonardo Flores</div>
+            <div class="footer-center"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a></div>
+            <div class="footer-right">
+                <div class="search-container">
+                    <input type="search" id="footerSearchInput" placeholder="Search posts..." aria-label="Search posts">
+                    <div id="searchResults" class="search-results hidden"></div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="js/search.js"></script>

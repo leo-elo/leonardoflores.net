@@ -98,7 +98,7 @@ function handleSearchInput(event) {
 
 // Initialize search
 function initSearch() {
-    const searchInput = document.getElementById('searchInput');
+    const searchInput = document.getElementById('footerSearchInput') || document.getElementById('searchInput');
 
     if (!searchInput) {
         return;
