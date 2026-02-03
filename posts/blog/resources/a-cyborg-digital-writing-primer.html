@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Cyborg Digital Writing Primer - Leonardo Flores</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="icon" href="../../../images/wp-content/uploads/2019/08/cropped-leoprofilememefavicon-32x32.png">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-title-menu">
+                <h1><a href="../../../index.html">Leonardo Flores</a></h1>
+                <p class="tagline">Scholar, Leader, Creator</p>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav>
+            <a href="../../../about.html">About</a>
+            <a href="../../../calendar.html">Calendar</a>
+            <a href="../../../post-index.html">Index</a>
+            <a href="../../../category/presentations.html">Presentations</a>
+            <a href="../../../category/milestones.html">Milestones</a>
+            <a href="../../../category/teaching.html">Teaching</a>
+            <a href="../../../category/creative-work.html">Creative Work</a>
+            <a href="../../../category/resources.html">Resources</a>
+            <a href="../../../category/en-espanol.html">En Español</a>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <div class="post-header">
+                <h1 class="post-title">A Cyborg Digital Writing Primer</h1>
+            </div>
+
+            <div class="featured-image-container">
+        <img src="../../../images/wp-content/uploads/2024/06/Cyborg-writer.png" alt="A Cyborg Digital Writing Primer" class="post-featured-image">
+    </div>
+
+            <div class="post-content">
+                <div class="entry-meta">
+                    <time datetime="2024-06-24">June 24, 2024</time>
+                </div>
+
+                <div class="entry-content">
+                    <strong>Cyborg digital writing</strong> describes how both human authors and their writing have become enmeshed with digital technologies. Here are some related terms to contextualize.
+<ul>
+ 	<li aria-level="1"><strong>Cyborg writing</strong> refers to how our own writing is increasingly shaped by digital writing technologies such as spell and grammar checkers, predictive keyboards and suggested texts, generative AI, and bespoke engines for text generation. Cyborg writing can result in writing designed for the page (printed or virtual) or in digital writing.</li>
+ 	<li aria-level="1"><strong>Digital writing</strong> refers to writing that embraces the potential digital media offers to produce generative, interactive, multimodal, kinetic, hypertextual, textual works that engage digital culture to go beyond the limitations of the page (printed or virtual).</li>
+ 	<li aria-level="1"><strong>Electronic literature</strong> is <em>literary</em> digital writing. As an older term in the field, it includes practices (such as sound poetry) that aren't strictly digital writing.</li>
+</ul>
+This primer will show two approaches to produce cyborg digital writing, first by showing how to hack an existing work of digital writing work to produce a new one, and then by showing how to use AI to generate code to produce a new framework for digital writing.
+<h2>How to hack a digital work</h2>
+The first step is to select any standalone (that is, not using external libraries) HTML-based digital work, or one of the recommended ones below:
+<ul>
+ 	<li><a href="http://iloveepoetry.org/creative/floresgenerativetemplate.html">Leonardo Flores’ Generative Template</a> by Leonardo Flores (recommended)</li>
+ 	<li><a href="https://nickm.com/taroko_gorge/original.html">Taroko Gorge</a> by Nick Montfort</li>
+ 	<li><a href="https://nickm.com/2/the_two.html">The Two</a> by Nick Montfort</li>
+ 	<li><a href="https://nickm.com/memslam/a_house_of_dust.html">A House of Dust</a> by Alison Knowles and James Tenney (reimplemented by Nick Montfort)</li>
+ 	<li>Any of the works published in <a href="https://taper.badquar.to/"><em>Taper</em></a>.</li>
+</ul>
+<h3>Process</h3>
+<ol>
+ 	<li>Open the work, linked to above in your browser, and save it as an HTML file in your computer (smartphones and tablets are not recommended for this).</li>
+ 	<li>Open the saved file with a code or text editor (I recommend <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a>).</li>
+ 	<li>Open the same saved file in a browser. Whenever you make changes to the original file, save it in the editor, and reload it in the browser to see the changes.</li>
+ 	<li>Modify the code as you see fit, being careful not to break it by missing a comma, quotation mark, semicolon, etc. Take small steps in changing datasets.</li>
+ 	<li>When you’re satisfied with the text the work is generating, give it a title, modify the aspects of the source code that display your title and name, modify the style sheet as you see fit, and rename the file as something that is yours. I recommend writing an artist’s statement in the source code documentation in which you credit the original work and any AI systems you used to assist in coding.</li>
+</ol>
+If the code breaks you have some options for debugging:
+<ul>
+ 	<li>See if the code editor identifies the problem by making the line number red.</li>
+ 	<li>Open the developer tools in your browser and look for the error messages, which will tell you where the problems are by line and space number.</li>
+ 	<li>Copy paste your code into the AI system and ask it to fix it. Describe the problem in your prompt.</li>
+ 	<li>Use undo (Control/Command + z) until you get to an earlier version of your document that works.</li>
+</ul>
+<h2>How to use AI to create a digital work</h2>
+AI can significantly reduce the access barrier to creating new frameworks for digital writing, but you do need to know some programming basics and a general familiarity with the conventions of the programming language you will use and debugging tools. For the purposes of this exercise, I will focus on HTML (including CSS and JavaScript).
+<h3>Preparation</h3>
+Before you start prompting, think of what framework for digital writing you would like to create. Here's an example I will illustrate after describing the process:
+<p style="padding-left: 40px;">A word (or phrase or poetic line) appears in the middle of the screen. When the user touches it, it changes to a different word. This allows you to write a sequence of words that can complete a sentence, tell a story, or deliver a poem.</p>
+
+<h3>Process</h3>
+<ol>
+ 	<li>Create a new document with a code editor (I recommend <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a>) and give it a simple name in lower case, followed by the suffix .html (such as sequence.html).</li>
+ 	<li>Open <a href="https://chat.openai.com/">Chat GPT</a>, <a href="https://claude.ai">Claude</a>, or any other AI system of choice.</li>
+ 	<li>Prompt the AI to generate HTML code to produce the results you want, starting with a simple yet descriptive prompt.</li>
+ 	<li>Copy-paste the generated code into your document.</li>
+ 	<li>Save the document and then open (or reload) in your browser to see the results.</li>
+ 	<li>If you don't like the results or would like to modify them, repeat steps 3-5.</li>
+ 	<li>Once you're happy with the "engine." Modify the code directly in your editor so that it says what you want it to say. Repeat step 5 after each modification.</li>
+</ol>
+If the code breaks you have some options for debugging:
+<ul>
+ 	<li>See if the code editor identifies the problem by making the line number red.</li>
+ 	<li>Open the developer tools in your browser and look for the error messages, which will tell you where the problems are by line and space number.</li>
+ 	<li>Copy paste your code into the AI system and ask it to fix it. Describe the problem in your prompt.</li>
+ 	<li>Use undo (Control/Command + z) until you get to an earlier version of your document that works.</li>
+</ul>
+If the code becomes too long for the AI to read, focus on the portions you want to modify, such as the script, style (CSS), header, etc. Be sure to only copy-paste the sections you wish to modify.
+<h3>Example</h3>
+Prompt: "Generate HTML code to produce a page in which there's a word centered on the screen. When the user clicks or touches the word, it changes to the next word in a sequence of 10 words. Use lorem ipsum text for the words."
+
+Here's the output produced by ChatGPT 4o.
+<p style="padding-left: 40px;"><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Sequence</title>
+<style>
+body, html {
+height: 100%;
+margin: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+font-family: Arial, sans-serif;
+background-color: #f0f0f0;
+}
+#word {
+font-size: 2em;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div id="word">Lorem</div>
+<script>
+const words = ["Lorem", "Ipsum", "Dolor", "Sit", "Amet", "Consectetur", "Adipiscing", "Elit", "Integer", "Nec"];
+let currentIndex = 0;</p>
+<p style="padding-left: 40px;">document.getElementById("word").addEventListener("click", () => {
+currentIndex = (currentIndex + 1) % words.length;
+document.getElementById("word").textContent = words[currentIndex];
+});
+</script>
+</body>
+</html></p>
+Notice that the lorem ipsum text is in the line that begins with the initial word in the "div" and then the sequence in the "const words." If you modify that text and save it, it will produce the sequence of words or phrases you write. Here's my modification.
+<p style="padding-left: 40px;"><body>
+<div id="word">Cyborg Digital Writing</div>
+<script>const words = ["I", "love", "creating", "new", "frameworks", "for", "digital", "writing.", "Don't", "you?"];</p>
+When you save the work, it works, but with the current configuration, the first click will begin displaying the word "love" instead of "I".
+
+A simple way to correct it is to prompt the AI with the following: "Make it so the first click goes to the first word in the words sequence in this code: [copy-paste the complete code]" which yields the following results:
+<p style="padding-left: 40px;"><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Sequence</title>
+<style>
+body, html {
+height: 100%;
+margin: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+font-family: Arial, sans-serif;
+background-color: #f0f0f0;
+}
+#word {
+font-size: 2em;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div id="word">Cyborg Digital Writing</div>
+<script>
+const words = ["I", "love", "creating", "new", "frameworks", "for", "digital", "writing.", "Don't", "you?"];
+let currentIndex = -1; // Start at -1 so the first click sets it to 0</p>
+<p style="padding-left: 40px;">document.getElementById("word").addEventListener("click", () => {
+currentIndex = (currentIndex + 1) % words.length;
+document.getElementById("word").textContent = words[currentIndex];
+});
+</script>
+</body>
+</html></p>
+And that fixes it! This is a simple way to use natural language in an AI system to generate functional code.
+
+However, take a moment to read the code and begin to learn how it operates. If you notice, the new code only modified one line "let currentIndex = -1; // Start at -1 so the first click sets it to 0" and documented the change. Next time, you can simply set currentIndex = -1, instead of currentIndex=0 for a simpler fix you can do yourself.
+
+And these are the first steps towards increasing your code literacy and creating new frameworks for digital writing using AI systems.
+
+Some final touches:
+<ul>
+ 	<li>Change the title for the piece by modifying the line "<title>Word Sequence</title>" to whatever title you want to give it (I'm changing it to "Cyborg Digital Writing").</li>
+ 	<li>Add some documentation to give credit where credit is due by inserting the following code in a new line after the title tag and modifying it with your details. (Note that I have included a short version of <a href="https://opensource.org/license/mit">the MIT license</a>):</li>
+</ul>
+<!-- “Cyborg Digital Writing” Copyright (C) 2024 Leonardo Flores
+
+Copying and distribution of this file, with or without modification, are permitted in any medium without royalty provided the copyright notice and this notice are preserved. This file is offered as-is, without any warranty.
+
+This is a minimalist digital writing framework created on June 24, 2024 by Leonardo Flores using ChatGPT 4o.
+
+-->
+<ul>
+ 	<li>Here's <a href="https://iloveepoetry.org/creative/sequence.html">a link to the work</a>.</li>
+ 	<li>Now, play with this simple code and develop it in a variety of ways, such as:
+<ul>
+ 	<li>Randomize the sequence of words.</li>
+ 	<li>Have the click affect the font size, so the words are larger, smaller, or randomly sized.</li>
+ 	<li>Make the word's color or background color (or both) change with every click.</li>
+ 	<li>Make the words appear in a random location on the screen with every click.</li>
+ 	<li>Make the user be able to drag the words.</li>
+ 	<li>Make the words move in a random direction and fly off screen, or bounce when it hits the edges.</li>
+ 	<li>While you're at it, make the words accumulate so the whole phrase is on screen.</li>
+ 	<li>Make the words grow or shrink in size over time and or fade.</li>
+ 	<li>Do whatever else you can think of.</li>
+</ul>
+</li>
+ 	<li>Final advice: add one feature at a time and work on it iteratively until it functions as desired before adding another feature.</li>
+</ul>
+You are ready. Now go have fun creating new digital works!
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">© 2026 Leonardo Flores</div>
+            <div class="footer-center"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a></div>
+            <div class="footer-right">
+                <div class="search-container">
+                    <input type="search" id="footerSearchInput" placeholder="Search posts..." aria-label="Search posts">
+                    <div id="searchResults" class="search-results hidden"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/search.js"></script>
+</body>
+</html>
