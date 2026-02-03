@@ -439,7 +439,6 @@ table th {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: var(--post-card-gap);
-    margin-bottom: 3rem;
 }
 
 /* Post Card Styling */
@@ -590,40 +589,27 @@ table th {
 
 /* Pagination */
 .pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1.5rem 0;
-    margin-top: 2rem;
+    display: block;
+    text-align: center;
+    padding: 3rem 0 1rem 0;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
 }
 
-.pagination a,
-.pagination-current {
-    text-decoration: none;
+.pagination a {
     color: var(--color-text-light);
-    font-size: 0.9rem;
+    text-decoration: none;
+    margin: 0 0.5rem;
 }
 
 .pagination a:hover {
     color: var(--color-primary);
+    text-decoration: underline;
 }
 
-.pagination-current {
-    color: var(--color-primary);
-    font-weight: 600;
-}
-
+.pagination-current,
+.pagination-number,
 .pagination-ellipsis {
-    color: var(--color-text-light);
-}
-
-.pagination-prev,
-.pagination-next {
-    color: var(--color-primary);
-}
-
-.pagination-number {
     display: none;
 }
 
@@ -634,9 +620,6 @@ table th {
         gap: 1.5rem;
     }
     
-    .pagination {
-        gap: 0.75rem;
-    }
 }
 
 /* Search Bar */
