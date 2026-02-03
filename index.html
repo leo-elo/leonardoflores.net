@@ -6,8 +6,49 @@
     <title>Leonardo Flores</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/wp-content/uploads/2019/08/cropped-leoprofilememefavicon-32x32.png">
+    <style>
+        /* Header Option 2: Title left, subtitle right on same line */
+        .header-option-2 .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-option-2 .tagline {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Header Option 3: All centered */
+        .header-option-3 {
+            text-align: center;
+        }
+        .header-option-3 .header-top {
+            justify-content: center;
+        }
+        .header-option-3 .header-title-menu {
+            justify-content: center;
+        }
+        .header-option-3 .tagline {
+            text-align: center;
+        }
+        .header-option-3 nav {
+            justify-content: center;
+        }
+
+        /* Labels for each option */
+        .header-label {
+            background: #F2AF29;
+            color: #000;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+
+<!-- OPTION 1: Current layout (title left, subtitle below) -->
+<div class="header-label">Option 1: Current Layout (Title left, subtitle below)</div>
 <header>
         <div class="header-top">
             <div class="header-title-menu">
@@ -21,8 +62,68 @@
         </div>
         <p class="tagline">Scholar, Academic Leader, Creator</p>
         <nav>
-            <a href="about.html">About</a>            <a href="courses.html">Courses</a>
-            <a href="https://www.youtube.com/watch?v=qN9fret0PNo">My TEDx Talk</a>            <a href="calendar.html">Calendar</a>
+            <a href="about.html">About</a>
+            <a href="courses.html">Courses</a>
+            <a href="https://www.youtube.com/watch?v=qN9fret0PNo">My TEDx Talk</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="post-index.html">Post Index</a>
+            <a href="category/presentations.html">Presentations</a>
+            <a href="category/milestones.html">Milestones</a>
+            <a href="category/teaching.html">Teaching</a>
+            <a href="category/creative-work.html">Creative Work</a>
+            <a href="category/resources.html">Resources</a>
+            <a href="category/en-espanol.html">En Español</a>
+        </nav>
+    </header>
+
+<!-- OPTION 2: Title left, subtitle right on same line -->
+<div class="header-label">Option 2: Title left, Subtitle right (same line)</div>
+<header class="header-option-2">
+        <div class="header-top">
+            <div class="header-title-menu">
+                <h1><a href="index.html">Leonardo Flores</a></h1>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <p class="tagline">Scholar, Academic Leader, Creator</p>
+        </div>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="courses.html">Courses</a>
+            <a href="https://www.youtube.com/watch?v=qN9fret0PNo">My TEDx Talk</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="post-index.html">Post Index</a>
+            <a href="category/presentations.html">Presentations</a>
+            <a href="category/milestones.html">Milestones</a>
+            <a href="category/teaching.html">Teaching</a>
+            <a href="category/creative-work.html">Creative Work</a>
+            <a href="category/resources.html">Resources</a>
+            <a href="category/en-espanol.html">En Español</a>
+        </nav>
+    </header>
+
+<!-- OPTION 3: All centered -->
+<div class="header-label">Option 3: All Centered</div>
+<header class="header-option-3">
+        <div class="header-top">
+            <div class="header-title-menu">
+                <h1><a href="index.html">Leonardo Flores</a></h1>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <p class="tagline">Scholar, Academic Leader, Creator</p>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="courses.html">Courses</a>
+            <a href="https://www.youtube.com/watch?v=qN9fret0PNo">My TEDx Talk</a>
+            <a href="calendar.html">Calendar</a>
             <a href="post-index.html">Post Index</a>
             <a href="category/presentations.html">Presentations</a>
             <a href="category/milestones.html">Milestones</a>
