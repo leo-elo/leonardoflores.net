@@ -59,13 +59,13 @@ header {
 
 header h1 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: 3.75rem;
     margin-bottom: 0;
     font-weight: normal;
 }
 
 header h1 a {
-    color: white;
+    color: #F2AF29;
     text-decoration: none;
 }
 
@@ -75,7 +75,7 @@ header h1 a:hover {
 
 header .tagline {
     font-size: 1rem;
-    color: #CCC;
+    color: #F2AF29;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
 }
@@ -865,7 +865,7 @@ footer {
 }
 
 .footer-left {
-    color: white;
+    color: #F2AF29;
 }
 
 .footer-center {
@@ -873,7 +873,7 @@ footer {
 }
 
 .footer-center a {
-    color: white;
+    color: #F2AF29;
     text-decoration: none;
 }
 

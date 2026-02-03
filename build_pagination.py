@@ -288,10 +288,8 @@ def create_page_html(posts, page_num, total_pages):
         <p class="tagline">Scholar, Academic Leader, Creator</p>
         <nav>
             <a href="about.html">About</a>
-            <a href="courses.html">Courses</a>
-            <a href="https://www.youtube.com/watch?v=qN9fret0PNo">My TEDx Talk</a>
             <a href="calendar.html">Calendar</a>
-            <a href="post-index.html">Post Index</a>
+            <a href="post-index.html">Index</a>
             <a href="category/presentations.html">Presentations</a>
             <a href="category/milestones.html">Milestones</a>
             <a href="category/teaching.html">Teaching</a>
