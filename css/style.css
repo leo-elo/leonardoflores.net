@@ -59,7 +59,7 @@ header {
 
 header h1 {
     font-family: var(--font-heading);
-    font-size: 3.75rem;
+    font-size: 2.5rem;
     margin-bottom: 0;
     font-weight: normal;
 }
@@ -75,7 +75,7 @@ header h1 a:hover {
 
 header .tagline {
     font-size: 1rem;
-    color: #F2AF29;
+    color: white;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
 }
@@ -773,7 +773,6 @@ table th {
     margin-left: calc(-50vw + 50%);
     margin-top: -3rem;
     padding: 1rem 2rem;
-    padding-top: calc(1rem + 10px);
     text-align: center;
     margin-bottom: 0;
 }
