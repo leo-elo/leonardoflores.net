@@ -1,0 +1,29 @@
+<article class="post-card">
+    <header class="post-card-header">
+        <a href="{{ post.url | relative_url }}" class="post-thumbnail-link">
+            <figure class="post-thumbnail">
+            {% if post.featured_image %}<img src="{{ post.featured_image | relative_url }}"
+                 alt="{{ post.featured_image_alt | default: post.title }}"
+                 class="post-thumbnail-image"
+                 loading="lazy">
+            {% else %}<div class="post-thumbnail-placeholder"><span class="placeholder-icon"></span></div>
+            {% endif %}</figure>
+        </a>
+    </header>
+
+    <div class="post-card-content">
+        <h2 class="entry-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+
+        <div class="entry-meta">
+            <time>{{ post.date | date: "%B %-d, %Y" }}</time>
+        </div>
+
+        <div class="entry-excerpt">
+            <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        </div>
+
+        <a href="{{ post.url | relative_url }}" class="read-more">Continue reading &rarr;</a>
+    </div>
+</article>

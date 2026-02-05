@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<div class="posts-grid">
+    {% for post in paginator.posts %}
+        {% include post-card.html post=post %}
+    {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination">
+    {% if paginator.previous_page %}<a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-prev">&larr; Newer Posts</a> {% endif %}
+
+    {% for page_num in (1..paginator.total_pages) %}
+        {% if page_num == paginator.page %}
+            <span class="pagination-current">{{ page_num }}</span>
+        {% elsif page_num == 1 %}
+            <a href="{{ '/' | relative_url }}" class="pagination-number">1</a>
+        {% else %}
+            <a href="{{ site.paginate_path | replace: ':num', page_num | relative_url }}" class="pagination-number">{{ page_num }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %} <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-next">Older Posts &rarr;</a>{% endif %}
+</nav>
+{% endif %}

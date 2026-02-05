@@ -8,7 +8,14 @@ let searchTimeout = null;
 // Load posts data
 async function loadPostsData() {
     try {
-        const response = await fetch('posts-data.json');
+        // Determine the base path for search data
+        let basePath = '';
+        const pathParts = window.location.pathname.split('/');
+        const baseIdx = pathParts.indexOf('leonardoflores.net');
+        if (baseIdx >= 0) {
+            basePath = pathParts.slice(0, baseIdx + 1).join('/');
+        }
+        const response = await fetch(basePath + '/search-data.json');
         postsData = await response.json();
     } catch (error) {
         console.error('Error loading posts data:', error);

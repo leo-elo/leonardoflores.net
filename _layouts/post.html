@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article>
+    <header class="post-header"><h1 class="post-title">{{ page.title }}</h1></header>
+    {% if page.featured_image %}<div class="featured-image-container">
+        <img src="{{ page.featured_image | relative_url }}" alt="{{ page.featured_image_alt | default: page.title }}" class="post-featured-image">
+    </div>{% endif %}
+    <div id="primary"><main id="main"><article id="post-content"><div>{{ content }}</div>
+    </article>
+</main>
+<p class="categories post-categories-bottom">Categories: {% for cat in page.categories %}{% assign cat_slug = cat | slugify %}<a href="{{ '/category/' | append: cat_slug | append: '.html' | relative_url }}">{{ site.category_names[cat_slug] | default: cat }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+    </div>
+</article>

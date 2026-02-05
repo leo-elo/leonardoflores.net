@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<div class="category-nav">
+    <strong>Categories:</strong>
+    {% assign cats = "news,presentations,creative-work,teaching,resources,en-espanol" | split: "," %}
+    {% for cat in cats %}
+        {% if cat == page.category_slug %}<span class="current-category">{{ site.category_names[cat] }}</span>{% else %}<a href="{{ '/category/' | append: cat | append: '.html' | relative_url }}">{{ site.category_names[cat] }}</a>{% endif %}
+        {% unless forloop.last %} | {% endunless %}
+    {% endfor %}
+</div>
+
+<p class="category-count">{{ page.posts | size }} posts, sorted by date (newest first)</p>
+
+<ul class="category-posts">
+    {% for post in page.posts %}
+    <li class="category-post-item">
+        <a href="{{ post.url | relative_url }}" class="category-post-link">{{ post.title }}</a>
+        <span class="category-post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+    </li>
+    {% endfor %}
+</ul>

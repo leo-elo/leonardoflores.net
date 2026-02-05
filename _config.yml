@@ -1,0 +1,43 @@
+title: Leonardo Flores
+description: "Scholar, Leader, Creator. Professor Leonardo Flores is Chair of the English Department at Appalachian State University, specializing in electronic literature and digital writing."
+url: "https://leo-elo.github.io"
+baseurl: "/leonardoflores.net"
+
+# Build
+markdown: kramdown
+highlighter: rouge
+
+# Pagination
+pagination:
+  enabled: true
+  per_page: 12
+  permalink: "/page-:num/"
+  title: ":title"
+  sort_field: "date"
+  sort_reverse: true
+
+# Category display names (slug -> display)
+category_names:
+  news: "News"
+  presentations: "Presentations"
+  creative-work: "Creative Work"
+  teaching: "Teaching"
+  resources: "Resources"
+  en-espanol: "En Español"
+
+# Plugins
+plugins:
+  - jekyll-paginate-v2
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - "*.py"
+  - all_posts.json
+  - all_posts_cards.json
+  - all_posts_full.json
+  - posts-data.json
+  - convert_to_jekyll.py
+  - README.md
+  - vendor
