@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include head.html %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .landing-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+        }
+
+        .landing-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .accordion-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .accordion-section {
+            position: relative;
+            height: 33.33%;
+            overflow: hidden;
+            transition: height 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+            cursor: pointer;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .accordion-section:first-child {
+            border-top: none;
+        }
+
+        .accordion-section.expanded {
+            height: 70%;
+            cursor: default;
+        }
+
+        .accordion-section.collapsed {
+            height: 15%;
+        }
+
+        .section-label {
+            position: absolute;
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: bold;
+            color: #F2AF29;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+
+        .accordion-section.expanded .section-label {
+            font-size: 2rem;
+            top: 30px;
+            transform: translateY(0);
+        }
+
+        .section-content {
+            position: absolute;
+            left: 40px;
+            right: 40px;
+            top: 100px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+            max-width: 600px;
+        }
+
+        .accordion-section.expanded .section-content {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .section-content p {
+            color: white;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content a {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #F2AF29;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .section-content a:hover {
+            background-color: #D1E4DD;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: 2px solid #F2AF29;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            line-height: 36px;
+            text-align: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .accordion-section.expanded .close-btn {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .close-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .section-label {
+                font-size: 2rem;
+                left: 20px;
+            }
+
+            .accordion-section.expanded .section-label {
+                font-size: 1.5rem;
+            }
+
+            .section-content {
+                left: 20px;
+                right: 20px;
+                top: 80px;
+            }
+
+            .section-content p {
+                font-size: 1rem;
+            }
+
+            .close-btn {
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <img src="{{ '/images/cyberleo2026.png' | relative_url }}" alt="Leonardo Flores" class="landing-image">
+
+        <div class="accordion-overlay">
+            <div class="accordion-section" data-section="scholar">
+                <div class="section-label">Scholar</div>
+                <div class="section-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    <a href="{{ '/scholar.html' | relative_url }}">Explore My Scholarship →</a>
+                </div>
+                <div class="close-btn">&times;</div>
+            </div>
+
+            <div class="accordion-section" data-section="leader">
+                <div class="section-label">Leader</div>
+                <div class="section-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    <a href="{{ '/leader.html' | relative_url }}">Explore My Leadership →</a>
+                </div>
+                <div class="close-btn">&times;</div>
+            </div>
+
+            <div class="accordion-section" data-section="creator">
+                <div class="section-label">Creator</div>
+                <div class="section-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    <a href="{{ '/creator.html' | relative_url }}">Explore My Creative Work →</a>
+                </div>
+                <div class="close-btn">&times;</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.accordion-section');
+
+            sections.forEach(section => {
+                section.addEventListener('click', function(e) {
+                    // Don't expand if clicking on link or close button
+                    if (e.target.tagName === 'A' || e.target.classList.contains('close-btn')) {
+                        return;
+                    }
+
+                    // If already expanded, do nothing
+                    if (this.classList.contains('expanded')) {
+                        return;
+                    }
+
+                    // Collapse all sections
+                    sections.forEach(s => {
+                        s.classList.remove('expanded', 'collapsed');
+                    });
+
+                    // Expand this section
+                    this.classList.add('expanded');
+
+                    // Collapse others
+                    sections.forEach(s => {
+                        if (s !== this) {
+                            s.classList.add('collapsed');
+                        }
+                    });
+                });
+
+                // Close button handler
+                const closeBtn = section.querySelector('.close-btn');
+                closeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+
+                    // Reset all sections
+                    sections.forEach(s => {
+                        s.classList.remove('expanded', 'collapsed');
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
