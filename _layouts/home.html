@@ -8,7 +8,7 @@ layout: default
         {% endfor %}
     {% else %}
         {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
-        {% for post in sorted_posts %}
+        {% for post in sorted_posts limit:12 %}
             {% include post-card.html post=post %}
         {% endfor %}
     {% endif %}
