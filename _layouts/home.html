@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+{% assign per_page = 12 %}
+{% assign page_num = page.page_number | default: 1 %}
+{% assign offset = page_num | minus: 1 | times: per_page %}
+{% assign total_posts = site.posts.size %}
+{% assign total_pages = total_posts | divided_by: per_page | plus: 1 %}
+
 <div class="posts-grid">
     {% if paginator.posts %}
         {% for post in paginator.posts %}
@@ -8,7 +14,7 @@ layout: default
         {% endfor %}
     {% else %}
         {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
-        {% for post in sorted_posts limit:12 %}
+        {% for post in sorted_posts limit:12 offset:{{ offset }} %}
             {% include post-card.html post=post %}
         {% endfor %}
     {% endif %}
@@ -29,5 +35,31 @@ layout: default
     {% endfor %}
 
     {% if paginator.next_page %} <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-next">Older Posts &rarr;</a>{% endif %}
+</nav>
+{% elsif total_pages > 1 %}
+<nav class="pagination">
+    {% if page_num > 1 %}
+        {% if page_num == 2 %}
+            <a href="{{ '/blog.html' | relative_url }}" class="pagination-prev">&larr; Newer Posts</a>
+        {% else %}
+            {% assign prev_page = page_num | minus: 1 %}
+            <a href="{{ '/blog-page-' | append: prev_page | append: '.html' | relative_url }}" class="pagination-prev">&larr; Newer Posts</a>
+        {% endif %}
+    {% endif %}
+
+    {% for i in (1..total_pages) %}
+        {% if i == page_num %}
+            <span class="pagination-current">{{ i }}</span>
+        {% elsif i == 1 %}
+            <a href="{{ '/blog.html' | relative_url }}" class="pagination-number">1</a>
+        {% else %}
+            <a href="{{ '/blog-page-' | append: i | append: '.html' | relative_url }}" class="pagination-number">{{ i }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_num < total_pages %}
+        {% assign next_page = page_num | plus: 1 %}
+        <a href="{{ '/blog-page-' | append: next_page | append: '.html' | relative_url }}" class="pagination-next">Older Posts &rarr;</a>
+    {% endif %}
 </nav>
 {% endif %}
