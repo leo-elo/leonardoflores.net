@@ -121,7 +121,7 @@
         .modal-content h2 {
             font-family: var(--font-heading);
             font-size: 2.5rem;
-            color: #F2AF29;
+            color: #000;
             margin-top: 0;
             margin-bottom: 1.5rem;
         }
@@ -193,13 +193,18 @@
         }
 
         @media (max-width: 768px) {
+            .image-accordion-wrapper {
+                flex-direction: column;
+            }
+
             .accordion-labels {
                 position: static;
                 transform: none;
                 flex-direction: row;
                 justify-content: center;
                 gap: 1rem;
-                margin-bottom: 1rem;
+                margin-top: 1rem;
+                order: 2;
             }
 
             .accordion-label {
@@ -212,6 +217,7 @@
 
             .landing-image {
                 max-height: 50vh;
+                order: 1;
             }
 
             .modal-content {
