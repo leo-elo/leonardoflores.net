@@ -14,8 +14,12 @@ layout: default
         {% endfor %}
     {% else %}
         {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
-        {% for post in sorted_posts limit:12 offset:{{ offset }} %}
-            {% include post-card.html post=post %}
+        {% assign end_index = offset | plus: per_page %}
+        {% for post in sorted_posts %}
+            {% assign index = forloop.index0 %}
+            {% if index >= offset and index < end_index %}
+                {% include post-card.html post=post %}
+            {% endif %}
         {% endfor %}
     {% endif %}
 </div>
