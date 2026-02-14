@@ -2,9 +2,16 @@
 layout: default
 ---
 <div class="posts-grid">
-    {% for post in paginator.posts %}
-        {% include post-card.html post=post %}
-    {% endfor %}
+    {% if paginator.posts %}
+        {% for post in paginator.posts %}
+            {% include post-card.html post=post %}
+        {% endfor %}
+    {% else %}
+        {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+        {% for post in sorted_posts limit:12 %}
+            {% include post-card.html post=post %}
+        {% endfor %}
+    {% endif %}
 </div>
 
 {% if paginator.total_pages > 1 %}
