@@ -7,11 +7,11 @@ baseurl: "/leonardoflores.net"
 markdown: kramdown
 highlighter: rouge
 
-# Pagination
+# Pagination (disabled globally, enabled per-page)
 pagination:
-  enabled: true
+  enabled: false
   per_page: 12
-  permalink: "/page-:num/"
+  permalink: "/blog/page-:num/"
   title: ":title"
   sort_field: "date"
   sort_reverse: true
