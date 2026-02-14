@@ -66,7 +66,7 @@ header h1 {
 }
 
 header h1 a {
-    color: #F2AF29;
+    color: #FDE801;
     text-decoration: none;
 }
 
@@ -89,7 +89,7 @@ header .tagline a {
 }
 
 header .tagline a:hover {
-    color: #F2AF29;
+    color: #FDE801;
 }
 
 /* Navigation */
@@ -752,7 +752,7 @@ table th {
 
 /* Post Header Styling */
 .post-header {
-    background-color: #F2AF29;
+    background-color: #FDE801;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     margin-top: -3rem;
@@ -848,7 +848,7 @@ footer {
 }
 
 .footer-left {
-    color: #F2AF29;
+    color: #FDE801;
 }
 
 .footer-center {
@@ -856,7 +856,7 @@ footer {
 }
 
 .footer-center a {
-    color: #F2AF29;
+    color: #FDE801;
     text-decoration: none;
 }
 
