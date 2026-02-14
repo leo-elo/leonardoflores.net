@@ -6,106 +6,94 @@
         body {
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            background-color: #fff;
         }
 
         .landing-container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 200px);
+            padding: 2rem;
+            gap: 3rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
         }
 
-        .landing-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .accordion-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .accordion-labels {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 2rem;
+            flex-shrink: 0;
         }
 
-        .accordion-section {
-            position: relative;
-            height: 33.33%;
-            overflow: hidden;
-            transition: height 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-            cursor: pointer;
-            border-top: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .accordion-section:first-child {
-            border-top: none;
-        }
-
-        .accordion-section.expanded {
-            height: 70%;
-            cursor: default;
-        }
-
-        .accordion-section.collapsed {
-            height: 15%;
-        }
-
-        .section-label {
-            position: absolute;
-            left: 40px;
-            top: 50%;
-            transform: translateY(-50%);
+        .accordion-label {
             font-family: var(--font-heading);
             font-size: 3rem;
             font-weight: bold;
+            color: var(--color-primary);
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+            user-select: none;
+        }
+
+        .accordion-label:hover {
             color: #F2AF29;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-            z-index: 10;
-            transition: all 0.5s ease;
-            pointer-events: none;
+            transform: translateX(10px);
         }
 
-        .accordion-section.expanded .section-label {
-            font-size: 2rem;
-            top: 30px;
-            transform: translateY(0);
+        .accordion-label.active {
+            color: #F2AF29;
         }
 
-        .section-content {
-            position: absolute;
-            left: 40px;
-            right: 40px;
-            top: 100px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: none;
+        .landing-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .landing-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: var(--global--elevation-large);
+        }
+
+        .section-detail {
+            display: none;
             max-width: 600px;
+            padding: 2rem;
+            background: var(--color-background-alt);
+            border-left: 4px solid #F2AF29;
+            border-radius: 4px;
         }
 
-        .accordion-section.expanded .section-content {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
+        .section-detail.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
         }
 
-        .section-content p {
-            color: white;
-            font-size: 1.2rem;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-detail p {
+            font-size: 1.1rem;
             line-height: 1.8;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
             margin-bottom: 1.5rem;
+            color: var(--color-text);
         }
 
-        .section-content a {
+        .section-detail a {
             display: inline-block;
             padding: 12px 30px;
             background-color: #F2AF29;
@@ -116,139 +104,108 @@
             transition: background-color 0.3s ease;
         }
 
-        .section-content a:hover {
-            background-color: #D1E4DD;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            background: rgba(0, 0, 0, 0.6);
+        .section-detail a:hover {
+            background-color: var(--color-primary);
             color: white;
-            border: 2px solid #F2AF29;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 24px;
-            line-height: 36px;
-            text-align: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
         }
 
-        .accordion-section.expanded .close-btn {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        @media (max-width: 1024px) {
+            .landing-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
 
-        .close-btn:hover {
-            background: rgba(0, 0, 0, 0.8);
+            .accordion-labels {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+
+            .accordion-label {
+                font-size: 2rem;
+            }
+
+            .accordion-label:hover {
+                transform: translateY(-5px);
+            }
         }
 
         @media (max-width: 768px) {
-            .section-label {
-                font-size: 2rem;
-                left: 20px;
+            .accordion-labels {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
             }
 
-            .accordion-section.expanded .section-label {
+            .accordion-label {
                 font-size: 1.5rem;
             }
 
-            .section-content {
-                left: 20px;
-                right: 20px;
-                top: 80px;
+            .section-detail {
+                padding: 1.5rem;
             }
 
-            .section-content p {
+            .section-detail p {
                 font-size: 1rem;
-            }
-
-            .close-btn {
-                right: 20px;
             }
         }
     </style>
 </head>
 <body>
+    {% include header.html %}
+
     <div class="landing-container">
-        <img src="{{ '/images/cyberleo2026.png' | relative_url }}" alt="Leonardo Flores" class="landing-image">
+        <div class="accordion-labels">
+            <div class="accordion-label" data-section="scholar">Scholar</div>
+            <div class="accordion-label" data-section="leader">Leader</div>
+            <div class="accordion-label" data-section="creator">Creator</div>
+        </div>
 
-        <div class="accordion-overlay">
-            <div class="accordion-section" data-section="scholar">
-                <div class="section-label">Scholar</div>
-                <div class="section-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                    <a href="{{ '/scholar.html' | relative_url }}">Explore My Scholarship →</a>
-                </div>
-                <div class="close-btn">&times;</div>
+        <div class="landing-content">
+            <img src="{{ '/images/cyberleo2026.png' | relative_url }}" alt="Leonardo Flores" class="landing-image">
+
+            <div class="section-detail" data-section="scholar">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <a href="{{ '/scholar.html' | relative_url }}">Explore My Scholarship →</a>
             </div>
 
-            <div class="accordion-section" data-section="leader">
-                <div class="section-label">Leader</div>
-                <div class="section-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                    <a href="{{ '/leader.html' | relative_url }}">Explore My Leadership →</a>
-                </div>
-                <div class="close-btn">&times;</div>
+            <div class="section-detail" data-section="leader">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <a href="{{ '/leader.html' | relative_url }}">Explore My Leadership →</a>
             </div>
 
-            <div class="accordion-section" data-section="creator">
-                <div class="section-label">Creator</div>
-                <div class="section-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                    <a href="{{ '/creator.html' | relative_url }}">Explore My Creative Work →</a>
-                </div>
-                <div class="close-btn">&times;</div>
+            <div class="section-detail" data-section="creator">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <a href="{{ '/creator.html' | relative_url }}">Explore My Creative Work →</a>
             </div>
         </div>
     </div>
 
+    {% include footer.html %}
+
+    <script src="{{ '/js/search.js' | relative_url }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.accordion-section');
+            const labels = document.querySelectorAll('.accordion-label');
+            const details = document.querySelectorAll('.section-detail');
 
-            sections.forEach(section => {
-                section.addEventListener('click', function(e) {
-                    // Don't expand if clicking on link or close button
-                    if (e.target.tagName === 'A' || e.target.classList.contains('close-btn')) {
-                        return;
+            labels.forEach(label => {
+                label.addEventListener('click', function() {
+                    const section = this.getAttribute('data-section');
+
+                    // Remove active from all labels
+                    labels.forEach(l => l.classList.remove('active'));
+
+                    // Remove active from all details
+                    details.forEach(d => d.classList.remove('active'));
+
+                    // Add active to clicked label
+                    this.classList.add('active');
+
+                    // Show corresponding detail
+                    const activeDetail = document.querySelector(`.section-detail[data-section="${section}"]`);
+                    if (activeDetail) {
+                        activeDetail.classList.add('active');
                     }
-
-                    // If already expanded, do nothing
-                    if (this.classList.contains('expanded')) {
-                        return;
-                    }
-
-                    // Collapse all sections
-                    sections.forEach(s => {
-                        s.classList.remove('expanded', 'collapsed');
-                    });
-
-                    // Expand this section
-                    this.classList.add('expanded');
-
-                    // Collapse others
-                    sections.forEach(s => {
-                        if (s !== this) {
-                            s.classList.add('collapsed');
-                        }
-                    });
-                });
-
-                // Close button handler
-                const closeBtn = section.querySelector('.close-btn');
-                closeBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-
-                    // Reset all sections
-                    sections.forEach(s => {
-                        s.classList.remove('expanded', 'collapsed');
-                    });
                 });
             });
         });
