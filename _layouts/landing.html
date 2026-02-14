@@ -6,35 +6,58 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #fff;
+            background-color: #000;
         }
 
         .landing-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: calc(100vh - 200px);
-            padding: 2rem;
-            gap: 3rem;
-            max-width: var(--max-width);
-            margin: 0 auto;
+            min-height: calc(100vh - 100px);
+            padding: 0;
+            position: relative;
+        }
+
+        .image-accordion-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .landing-image {
+            max-width: 100%;
+            max-height: calc(100vh - 150px);
+            height: auto;
+            width: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: var(--global--elevation-large);
         }
 
         .accordion-labels {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            flex-shrink: 0;
+            z-index: 10;
         }
 
         .accordion-label {
             font-family: var(--font-heading);
             font-size: 3rem;
             font-weight: bold;
-            color: var(--color-primary);
+            color: #fff;
             cursor: pointer;
             transition: color 0.3s ease, transform 0.3s ease;
             user-select: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .accordion-label:hover {
@@ -46,24 +69,10 @@
             color: #F2AF29;
         }
 
-        .landing-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .landing-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: var(--global--elevation-large);
-        }
-
         .section-detail {
             display: none;
-            max-width: 600px;
+            max-width: 800px;
+            margin: 2rem auto;
             padding: 2rem;
             background: var(--color-background-alt);
             border-left: 4px solid #F2AF29;
@@ -110,38 +119,45 @@
         }
 
         @media (max-width: 1024px) {
-            .landing-container {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
             .accordion-labels {
-                flex-direction: row;
+                left: 3%;
                 gap: 1.5rem;
             }
 
             .accordion-label {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .accordion-label:hover {
-                transform: translateY(-5px);
+            .landing-image {
+                max-height: calc(100vh - 200px);
             }
         }
 
         @media (max-width: 768px) {
             .accordion-labels {
-                flex-direction: column;
-                align-items: center;
+                position: static;
+                transform: none;
+                flex-direction: row;
+                justify-content: center;
                 gap: 1rem;
+                margin-bottom: 1rem;
             }
 
             .accordion-label {
                 font-size: 1.5rem;
             }
 
+            .accordion-label:hover {
+                transform: translateY(-5px);
+            }
+
+            .landing-image {
+                max-height: 50vh;
+            }
+
             .section-detail {
                 padding: 1.5rem;
+                margin: 1rem;
             }
 
             .section-detail p {
@@ -154,29 +170,28 @@
     {% include header.html %}
 
     <div class="landing-container">
-        <div class="accordion-labels">
-            <div class="accordion-label" data-section="scholar">Scholar</div>
-            <div class="accordion-label" data-section="leader">Leader</div>
-            <div class="accordion-label" data-section="creator">Creator</div>
+        <div class="image-accordion-wrapper">
+            <div class="accordion-labels">
+                <div class="accordion-label" data-section="scholar">Scholar</div>
+                <div class="accordion-label" data-section="leader">Leader</div>
+                <div class="accordion-label" data-section="creator">Creator</div>
+            </div>
+            <img src="{{ '/images/cyberleo2026.png' | relative_url }}" alt="Leonardo Flores" class="landing-image">
         </div>
 
-        <div class="landing-content">
-            <img src="{{ '/images/cyberleo2026.png' | relative_url }}" alt="Leonardo Flores" class="landing-image">
+        <div class="section-detail" data-section="scholar">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <a href="{{ '/scholar.html' | relative_url }}">Explore My Scholarship →</a>
+        </div>
 
-            <div class="section-detail" data-section="scholar">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                <a href="{{ '/scholar.html' | relative_url }}">Explore My Scholarship →</a>
-            </div>
+        <div class="section-detail" data-section="leader">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <a href="{{ '/leader.html' | relative_url }}">Explore My Leadership →</a>
+        </div>
 
-            <div class="section-detail" data-section="leader">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                <a href="{{ '/leader.html' | relative_url }}">Explore My Leadership →</a>
-            </div>
-
-            <div class="section-detail" data-section="creator">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                <a href="{{ '/creator.html' | relative_url }}">Explore My Creative Work →</a>
-            </div>
+        <div class="section-detail" data-section="creator">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <a href="{{ '/creator.html' | relative_url }}">Explore My Creative Work →</a>
         </div>
     </div>
 
