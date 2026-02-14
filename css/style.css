@@ -81,6 +81,16 @@ header .tagline {
     flex: 1;
 }
 
+header .tagline a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header .tagline a:hover {
+    color: var(--color-accent);
+}
+
 /* Navigation */
 header nav {
     display: none;

@@ -9,6 +9,11 @@
             background-color: #000;
         }
 
+        /* Hide tagline on landing page only */
+        .tagline {
+            display: none;
+        }
+
         .landing-container {
             display: flex;
             flex-direction: column;
@@ -65,44 +70,70 @@
             transform: translateX(10px);
         }
 
-        .accordion-label.active {
-            color: #F2AF29;
-        }
-
-        .section-detail {
+        /* Modal styles */
+        .modal {
             display: none;
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: var(--color-background-alt);
-            border-left: 4px solid #F2AF29;
-            border-radius: 4px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
         }
 
-        .section-detail.active {
-            display: block;
+        .modal.active {
+            display: flex;
             animation: fadeIn 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .modal-content {
+            background: var(--color-background-alt);
+            border-left: 4px solid #F2AF29;
+            border-radius: 8px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.3s ease;
         }
 
-        .section-detail p {
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            color: #999;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #F2AF29;
+        }
+
+        .modal-content h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: #F2AF29;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-content p {
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 1.5rem;
             color: var(--color-text);
         }
 
-        .section-detail a {
+        .modal-content a {
             display: inline-block;
             padding: 12px 30px;
             background-color: #F2AF29;
@@ -113,9 +144,29 @@
             transition: background-color 0.3s ease;
         }
 
-        .section-detail a:hover {
+        .modal-content a:hover {
             background-color: var(--color-primary);
             color: white;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 1024px) {
@@ -130,6 +181,14 @@
 
             .landing-image {
                 max-height: calc(100vh - 200px);
+            }
+
+            .modal-content {
+                padding: 2rem;
+            }
+
+            .modal-content h2 {
+                font-size: 2rem;
             }
         }
 
@@ -155,12 +214,16 @@
                 max-height: 50vh;
             }
 
-            .section-detail {
+            .modal-content {
                 padding: 1.5rem;
-                margin: 1rem;
+                width: 85%;
             }
 
-            .section-detail p {
+            .modal-content h2 {
+                font-size: 1.75rem;
+            }
+
+            .modal-content p {
                 font-size: 1rem;
             }
         }
@@ -178,18 +241,31 @@
             </div>
             <img src="{{ '/images/cyberleo2026.png' | relative_url }}" alt="Leonardo Flores" class="landing-image">
         </div>
+    </div>
 
-        <div class="section-detail" data-section="scholar">
+    <!-- Modals -->
+    <div class="modal" data-modal="scholar">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2>Scholar</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
             <a href="{{ '/scholar.html' | relative_url }}">Explore My Scholarship →</a>
         </div>
+    </div>
 
-        <div class="section-detail" data-section="leader">
+    <div class="modal" data-modal="leader">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2>Leader</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
             <a href="{{ '/leader.html' | relative_url }}">Explore My Leadership →</a>
         </div>
+    </div>
 
-        <div class="section-detail" data-section="creator">
+    <div class="modal" data-modal="creator">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h2>Creator</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
             <a href="{{ '/creator.html' | relative_url }}">Explore My Creative Work →</a>
         </div>
@@ -201,27 +277,46 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const labels = document.querySelectorAll('.accordion-label');
-            const details = document.querySelectorAll('.section-detail');
+            const modals = document.querySelectorAll('.modal');
+            const closeButtons = document.querySelectorAll('.modal-close');
 
+            // Open modal when label is clicked
             labels.forEach(label => {
                 label.addEventListener('click', function() {
                     const section = this.getAttribute('data-section');
-
-                    // Remove active from all labels
-                    labels.forEach(l => l.classList.remove('active'));
-
-                    // Remove active from all details
-                    details.forEach(d => d.classList.remove('active'));
-
-                    // Add active to clicked label
-                    this.classList.add('active');
-
-                    // Show corresponding detail
-                    const activeDetail = document.querySelector(`.section-detail[data-section="${section}"]`);
-                    if (activeDetail) {
-                        activeDetail.classList.add('active');
+                    const modal = document.querySelector(`.modal[data-modal="${section}"]`);
+                    if (modal) {
+                        modal.classList.add('active');
                     }
                 });
+            });
+
+            // Close modal when close button is clicked
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    if (modal) {
+                        modal.classList.remove('active');
+                    }
+                });
+            });
+
+            // Close modal when clicking outside the modal content
+            modals.forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                    }
+                });
+            });
+
+            // Close modal on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        modal.classList.remove('active');
+                    });
+                }
             });
         });
     </script>
