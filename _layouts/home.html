@@ -15,9 +15,9 @@ layout: default
         {% if page_num == paginator.page %}
             <span class="pagination-current">{{ page_num }}</span>
         {% elsif page_num == 1 %}
-            <a href="{{ '/' | relative_url }}" class="pagination-number">1</a>
+            <a href="{{ paginator.first_page_path | relative_url }}" class="pagination-number">1</a>
         {% else %}
-            <a href="{{ site.paginate_path | replace: ':num', page_num | relative_url }}" class="pagination-number">{{ page_num }}</a>
+            <a href="{{ paginator.page_path | replace: ':num', page_num | relative_url }}" class="pagination-number">{{ page_num }}</a>
         {% endif %}
     {% endfor %}
 
