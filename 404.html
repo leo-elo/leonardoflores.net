@@ -1,0 +1,234 @@
+---
+layout: default
+permalink: /404.html
+---
+<div style="max-width: 800px; margin: 4rem auto; padding: 2rem; text-align: center;">
+    <h1 style="font-size: 3rem; color: var(--color-primary); margin-bottom: 1rem;">404</h1>
+    <h2 style="font-size: 1.5rem; color: var(--color-text); margin-bottom: 2rem;">Page Not Found</h2>
+
+    <div id="redirect-message" style="display: none; padding: 1.5rem; background: #f0f0f0; border-radius: 8px; margin-bottom: 2rem;">
+        <p style="font-size: 1.1rem; margin-bottom: 1rem;">🔄 Redirecting you to the new location...</p>
+        <p id="new-url" style="font-size: 0.9rem; color: #666;"></p>
+    </div>
+
+    <div id="not-found-message">
+        <p style="font-size: 1.1rem; line-height: 1.6; color: var(--color-text-light); margin-bottom: 2rem;">
+            The page you're looking for doesn't exist. This site has recently migrated from WordPress to a new platform.
+        </p>
+        <p style="margin-bottom: 2rem;">
+            <a href="{{ '/' | relative_url }}" style="display: inline-block; padding: 0.75rem 1.5rem; background: var(--color-primary); color: white; text-decoration: none; border-radius: 4px; font-weight: 600;">
+                Go to Homepage
+            </a>
+        </p>
+        <p style="font-size: 0.9rem; color: var(--color-text-light);">
+            Looking for blog posts? Visit the <a href="{{ '/blog.html' | relative_url }}" style="color: var(--color-primary);">Blog</a>
+        </p>
+    </div>
+</div>
+
+<script>
+// Redirect map from WordPress URLs to new GitHub Pages URLs
+const redirectMap = {
+  "/sample-page": "/sample-page.html",
+  "/about": "/about.html",
+  "/contact": "/contact.html",
+  "/calendar": "/calendar.html",
+  "/elc3": "/elc3.html",
+  "/activity": "/activity.html",
+  "/members": "/members.html",
+  "/register": "/register.html",
+  "/activate": "/activate.html",
+  "/publications": "/scholar.html",
+  "/creative-work": "/creator.html",
+  "/courses": "/teacher.html",
+  "/blog/uncategorized/hello-world-2": "/blog-posts/hello-world-2.html",
+  "/blog/uncategorized/spring-2008-update": "/blog-posts/spring-2008-update.html",
+  "/blog/news/leonardo-flores-for-academic-senator": "/blog-posts/leonardo-flores-for-academic-senator.html",
+  "/blog/courses/fantasy-film-course": "/blog-posts/fantasy-film-course.html",
+  "/blog/news/leonardo-flores-academic-senator": "/blog-posts/leonardo-flores-academic-senator.html",
+  "/blog/courses/difficulties-registering-for-ingl-3300-or-3345": "/blog-posts/difficulties-registering-for-ingl-3300-or-3345.html",
+  "/blog/news/promotion": "/blog-posts/promotion.html",
+  "/blog/news/leonardo-flores-associate-dean": "/blog-posts/leonardo-flores-associate-dean.html",
+  "/blog/uncategorized/spring-2009-updated": "/blog-posts/spring-2009-updated.html",
+  "/blog/uncategorized/fall-2009-update": "/blog-posts/fall-2009-update.html",
+  "/blog/uncategorized/the-language-of-poetry-workshop-series": "/blog-posts/the-language-of-poetry-workshop-series.html",
+  "/blog/uncategorized/the-music-of-poetry-workshop": "/blog-posts/the-music-of-poetry-workshop.html",
+  "/blog/uncategorized/keynote-address-at-western-tesol-conference": "/blog-posts/keynote-address-at-western-tesol-conference.html",
+  "/blog/uncategorized/blast-from-the-past-an-early-course-website": "/blog-posts/blast-from-the-past-an-early-course-website.html",
+  "/blog/uncategorized/leonardo-flores-phd": "/blog-posts/leonardo-flores-phd.html",
+  "/blog/uncategorized/presentacion-octavo-congreso-de-educacion-y-tecnologia": "/blog-posts/presentacion-octavo-congreso-de-educacion-y-tecnologia.html",
+  "/blog/news/my-dissertation": "/blog-posts/my-dissertation.html",
+  "/blog/uncategorized/spring-2011-courses": "/blog-posts/spring-2011-courses.html",
+  "/blog/uncategorized/about-me": "/blog-posts/about-me.html",
+  "/blog/uncategorized/spring-2011-update": "/blog-posts/spring-2011-update.html",
+  "/blog/news/institute-for-the-digital-humanities-university-of-denver": "/blog-posts/institute-for-the-digital-humanities-university-of-denver.html",
+  "/blog/uncategorized/e-poetry-2011-presentation": "/blog-posts/e-poetry-2011-presentation.html",
+  "/blog/courses/worlds-of-fantasy-course": "/blog-posts/worlds-of-fantasy-course.html",
+  "/blog/uncategorized/google-it-workshop-at-pr-tesol-summer-institute": "/blog-posts/google-it-workshop-at-pr-tesol-summer-institute.html",
+  "/blog/uncategorized/wordle-of-my-dissertation": "/blog-posts/wordle-of-my-dissertation.html",
+  "/blog/uncategorized/presentation-at-upr-ponce": "/blog-posts/presentation-at-upr-ponce.html",
+  "/blog/uncategorized/blog-updated": "/blog-posts/blog-updated.html",
+  "/blog/uncategorized/proposal-for-neh-enduring-questions-grant": "/blog-posts/proposal-for-neh-enduring-questions-grant.html",
+  "/blog/uncategorized/neh-summer-stipend-proposal": "/blog-posts/neh-summer-stipend-proposal.html",
+  "/blog/proposals/proposal-badges-for-information-literacy": "/blog-posts/proposal-badges-for-information-literacy.html",
+  "/blog/proposals/proposal-digitalizacion-y-acceso-a-la-coleccion-limon-de-arce": "/blog-posts/proposal-digitalizacion-y-acceso-a-la-coleccion-limon-de-arce.html",
+  "/blog/courses/english-3300-introduction-to-electronic-literature": "/blog-posts/english-3300-introduction-to-electronic-literature.html",
+  "/blog/e-poetry-sites/new-project-i-%e2%99%a5-e-poetry": "/blog-posts/new-project-i-%e2%99%a5-e-poetry.html",
+  "/blog/news/macromedia-adobe-director-pad-preservation-access-dissemination": "/blog-posts/macromedia-adobe-director-pad-preservation-access-dissemination.html",
+  "/blog/news/leonardo-flores-fulbright-scholar": "/blog-posts/leonardo-flores-fulbright-scholar.html",
+  "/blog/news/media-coverage-of-my-fulbright-award": "/blog-posts/media-coverage-of-my-fulbright-award.html",
+  "/blog/news/availability-for-lectures-in-electronic-literature-in-european-union": "/blog-posts/availability-for-lectures-in-electronic-literature-in-european-union.html",
+  "/blog/presentations-2/literary-scholarship-2-0-reinventing-traditional-critical-practices-for-the-digital-age": "/blog-posts/literary-scholarship-2-0-reinventing-traditional-critical-practices-for-the-digital-age.html",
+  "/blog/presentations-2/e-publishing-2-0-reimagining-the-publication-and-preservation-of-electronic-literature": "/blog-posts/e-publishing-2-0-reimagining-the-publication-and-preservation-of-electronic-literature.html",
+  "/blog/presentations-2/selected-presentation-materials-2008-2011": "/blog-posts/selected-presentation-materials-2008-2011.html",
+  "/blog/presentations-2/publication-authorial-scholarship-2-0-tracing-the-creative-process-in-online-communities": "/blog-posts/publication-authorial-scholarship-2-0-tracing-the-creative-process-in-online-communities.html",
+  "/blog/presentations-2/recent-presentations-in-prezi": "/blog-posts/recent-presentations-in-prezi.html",
+  "/blog/news/i-%e2%99%a5-e-poetry-nominated-for-2012-dh-awards": "/blog-posts/i-%e2%99%a5-e-poetry-nominated-for-2012-dh-awards.html",
+  "/blog/news/recent-developments-in-i-%e2%99%a5-e-poetry": "/blog-posts/recent-developments-in-i-%e2%99%a5-e-poetry.html",
+  "/blog/news/idhdu-curating-and-preserving-electronic-literature-report-is-online": "/blog-posts/idhdu-curating-and-preserving-electronic-literature-report-is-online.html",
+  "/blog/uncategorized/rio-grande-review-double-fall-2012-spring-2013-issues": "/blog-posts/rio-grande-review-double-fall-2012-spring-2013-issues.html",
+  "/blog/presentations-2/mla-2014-electronic-literature-after-flash": "/blog-posts/mla-2014-electronic-literature-after-flash.html",
+  "/blog/news/my-2012-2013-fulbright-year-a-retrospect": "/blog-posts/my-2012-2013-fulbright-year-a-retrospect.html",
+  "/blog/news/hello-world-2-0": "/blog-posts/hello-world-2-0.html",
+  "/blog/presentations-2/presentation-visualizing-i-%e2%99%a5-e-poetry": "/blog-posts/presentation-visualizing-i-%e2%99%a5-e-poetry.html",
+  "/blog/presentations-2/teaching-with-i-%e2%99%a5-e-poetry": "/blog-posts/teaching-with-i-%e2%99%a5-e-poetry.html",
+  "/blog/news/the-i-%e2%99%a5-e-poetry-summer-of-pedagogy-report": "/blog-posts/the-i-%e2%99%a5-e-poetry-summer-of-pedagogy-report.html",
+  "/blog/presentations-2/keynote-address-resource-born-digital-literature-for-a-born-digital-generation": "/blog-posts/keynote-address-resource-born-digital-literature-for-a-born-digital-generation.html",
+  "/blog/presentations-2/reinventando-la-literatura-con-las-tecnologias-digitales": "/blog-posts/reinventando-la-literatura-con-las-tecnologias-digitales.html",
+  "/blog/presentations-2/guest-lecture-building-gathering-and-visualizing-data": "/blog-posts/guest-lecture-building-gathering-and-visualizing-data.html",
+  "/blog/presentations-2/e-poetry-as-code-and-data-remix": "/blog-posts/e-poetry-as-code-and-data-remix.html",
+  "/blog/news/now-recruiting-interns": "/blog-posts/now-recruiting-interns.html",
+  "/blog/news/uprm-front-page-tv-spot": "/blog-posts/uprm-front-page-tv-spot.html",
+  "/blog/interviews/electronic-literature-review-elr-interview": "/blog-posts/electronic-literature-review-elr-interview.html",
+  "/blog/news/bot-summit": "/blog-posts/bot-summit.html",
+  "/blog/presentations-2/supercharge-your-graduate-studies-with-external-funding-opportunities": "/blog-posts/supercharge-your-graduate-studies-with-external-funding-opportunities.html",
+  "/blog/courses/multimodal-literature-in-the-digital-age": "/blog-posts/multimodal-literature-in-the-digital-age.html",
+  "/blog/news/a-shifting-electronic-text-close-reading-white-faced-bromeliads-on-20-hectares": "/blog-posts/a-shifting-electronic-text-close-reading-white-faced-bromeliads-on-20-hectares.html",
+  "/blog/news/new-neh-proposal-a-world-of-e-literature": "/blog-posts/new-neh-proposal-a-world-of-e-literature.html",
+  "/blog/performances/performance-a-bot-choral": "/blog-posts/performance-a-bot-choral.html",
+  "/blog/news/i-%e2%9d%a4%ef%b8%8f-e-poetry-featured-in-critical-making-in-digital-humanities-archive": "/blog-posts/i-%e2%9d%a4%ef%b8%8f-e-poetry-featured-in-critical-making-in-digital-humanities-archive.html",
+  "/blog/news/leonardo-flores-mla-2014-convention": "/blog-posts/leonardo-flores-mla-2014-convention.html",
+  "/blog/news/my-election-to-elo-board-of-directors": "/blog-posts/my-election-to-elo-board-of-directors.html",
+  "/blog/presentations-2/teaching-poetry-in-an-age-of-digital-media": "/blog-posts/teaching-poetry-in-an-age-of-digital-media.html",
+  "/blog/news/i-%e2%99%a5-e-poetry-nominated-for-2013-dh-awards": "/blog-posts/i-%e2%99%a5-e-poetry-nominated-for-2013-dh-awards.html",
+  "/blog/pedagogy/teaching-hamlet-in-digital-media": "/blog-posts/teaching-hamlet-in-digital-media.html",
+  "/blog/news/upcoming-talks-elo-2014": "/blog-posts/upcoming-talks-elo-2014.html",
+  "/blog/editorial-work/cultural-screenings-re-situating-american-digital-practices": "/blog-posts/cultural-screenings-re-situating-american-digital-practices.html",
+  "/blog/news/call-for-international-fulbright-student-researchers": "/blog-posts/call-for-international-fulbright-student-researchers.html",
+  "/blog/news/scripting-the-reader-in-electronic-literature-an-asa-roundtable": "/blog-posts/scripting-the-reader-in-electronic-literature-an-asa-roundtable.html",
+  "/blog/news/e-poetry-2014-intensive-the-poetics-of-it": "/blog-posts/e-poetry-2014-intensive-the-poetics-of-it.html",
+  "/blog/courses/digital-studies-courses": "/blog-posts/digital-studies-courses.html",
+  "/blog/courses/recruiting-for-fall-2014-digital-humanities-internship": "/blog-posts/recruiting-for-fall-2014-digital-humanities-internship.html",
+  "/blog/presentations-2/new-digital-genres-writing-for-social-media": "/blog-posts/new-digital-genres-writing-for-social-media.html",
+  "/blog/news/building-a-community-of-bot-makers": "/blog-posts/building-a-community-of-bot-makers.html",
+  "/blog/interviews/recent-interviews": "/blog-posts/recent-interviews.html",
+  "/blog/presentations-2/welcome-2014-english-majors": "/blog-posts/welcome-2014-english-majors.html",
+  "/blog/editorial-work/the-electronic-literature-collection-volume-3": "/blog-posts/the-electronic-literature-collection-volume-3.html",
+  "/blog/news/dh-lightning-short-talk-asa": "/blog-posts/dh-lightning-short-talk-asa.html",
+  "/blog/presentations-2/presentation-publishing-and-preserving-bots": "/blog-posts/presentation-publishing-and-preserving-bots.html",
+  "/blog/courses/spring-2015-courses": "/blog-posts/spring-2015-courses.html",
+  "/blog/presentations-2/summer-internship-orientation": "/blog-posts/summer-internship-orientation.html",
+  "/blog/presentations-2/amplia": "/blog-posts/amplia.html",
+  "/blog/publications/about-my-spanish-translation-of-enigma-n": "/blog-posts/about-my-spanish-translation-of-enigma-n.html",
+  "/blog/presentations-2/el-ingles-y-las-artes-de-la-palabra": "/blog-posts/el-ingles-y-las-artes-de-la-palabra.html",
+  "/blog/presentations-2/comics-digitales-una-charla": "/blog-posts/comics-digitales-una-charla.html",
+  "/blog/courses/fall2015courses": "/blog-posts/fall2015courses.html",
+  "/blog/publications/dhtml-dances-the-making-of-an-e-poet": "/blog-posts/dhtml-dances-the-making-of-an-e-poet.html",
+  "/blog/news/soy-productoupr": "/blog-posts/soy-productoupr.html",
+  "/blog/creative-work/se-levanta-un-bot-puertorriqueno-hostos-bot": "/blog-posts/se-levanta-un-bot-puertorriqueno-hostos-bot.html",
+  "/blog/presentations-2/i-%e2%99%a5-e-poetry-relatos-de-un-explorador": "/blog-posts/i-%e2%99%a5-e-poetry-relatos-de-un-explorador.html",
+  "/blog/presentations-2/cartografias-digitales-generos-norteamericanos-y-europeos": "/blog-posts/cartografias-digitales-generos-norteamericanos-y-europeos.html",
+  "/blog/news/leonardo-flores-full-professor": "/blog-posts/leonardo-flores-full-professor.html",
+  "/blog/presentations-2/presentation-time-capsules-for-true-digital-natives": "/blog-posts/presentation-time-capsules-for-true-digital-natives.html",
+  "/blog/creative-work/now-recruiting-bot-makers-for-hackpr-2015": "/blog-posts/now-recruiting-bot-makers-for-hackpr-2015.html",
+  "/blog/news/fall-2015-presentations": "/blog-posts/fall-2015-presentations.html",
+  "/blog/news/i-%e2%99%a5-e-poetry-impact-report": "/blog-posts/i-%e2%99%a5-e-poetry-impact-report.html",
+  "/blog/pedagogy/towards-a-geek-pedagogy-a-manifesto": "/blog-posts/towards-a-geek-pedagogy-a-manifesto.html",
+  "/blog/uncategorized/presentation-beyond-the-book-discover-electronic-literature": "/blog-posts/presentation-beyond-the-book-discover-electronic-literature.html",
+  "/blog/news/publicaciones-y-entrevistas-en-espanol": "/blog-posts/publicaciones-y-entrevistas-en-espanol.html",
+  "/blog/presentations-2/presentacion-los-ninos-de-ahora-y-la-literatura-electronica-preparacion-para-el-siglo-21": "/blog-posts/presentacion-los-ninos-de-ahora-y-la-literatura-electronica-preparacion-para-el-siglo-21.html",
+  "/blog/performances/my-tedx-talk-i-%e2%99%a5-e-poetry-discovering-digital-media-poetry": "/blog-posts/my-tedx-talk-i-%e2%99%a5-e-poetry-discovering-digital-media-poetry.html",
+  "/blog/grants/new-grant-la-literatura-electronica-en-puerto-rico-divulgando-el-futuro-de-la-palabra": "/blog-posts/new-grant-la-literatura-electronica-en-puerto-rico-divulgando-el-futuro-de-la-palabra.html",
+  "/blog/news/now-hiring-two-graduate-research-assistants-programming-and-translation": "/blog-posts/now-hiring-two-graduate-research-assistants-programming-and-translation.html",
+  "/blog/news/mi-columna-en-80-grados": "/blog-posts/mi-columna-en-80-grados.html",
+  "/blog/uncategorized/teaching-critical-memes": "/blog-posts/teaching-critical-memes.html",
+  "/blog/presentations-2/e-literature-for-app-makers": "/blog-posts/e-literature-for-app-makers.html",
+  "/blog/courses/spring-2017-courses": "/blog-posts/spring-2017-courses.html",
+  "/blog/interviews/new-video-resource-my-networked-narratives-studio-visit": "/blog-posts/new-video-resource-my-networked-narratives-studio-visit.html",
+  "/blog/news/support-the-elc3-with-your-vote": "/blog-posts/support-the-elc3-with-your-vote.html",
+  "/blog/creative-work/my-recent-criticalmemes": "/blog-posts/my-recent-criticalmemes.html",
+  "/blog/news/ola-portugal": "/blog-posts/ola-portugal.html",
+  "/blog/presentations-2/workshop-making-twitter-bots-for-digital-and-cultural-literacy": "/blog-posts/workshop-making-twitter-bots-for-digital-and-cultural-literacy.html",
+  "/blog/courses/spring-2018-courses": "/blog-posts/spring-2018-courses.html",
+  "/blog/presentations-2/lecture-third-generation-electronic-literature": "/blog-posts/lecture-third-generation-electronic-literature.html",
+  "/blog/presentations-2/elo18-panel-towards-e-lits-1-hit": "/blog-posts/elo18-panel-towards-e-lits-1-hit.html",
+  "/blog/courses/spring-2019-courses": "/blog-posts/spring-2019-courses.html",
+  "/blog/news/my-appointment-as-department-of-english-interim-director": "/blog-posts/my-appointment-as-department-of-english-interim-director.html",
+  "/blog/news/a-new-beginning": "/blog-posts/a-new-beginning.html",
+  "/blog/presentations-2/twitter-bot-workshop-for-rum-linguists": "/blog-posts/twitter-bot-workshop-for-rum-linguists.html",
+  "/blog/courses/curso-tres-generaciones-de-literatura-electronica-en-la-unam": "/blog-posts/curso-tres-generaciones-de-literatura-electronica-en-la-unam.html",
+  "/blog/presentations-2/two-recent-lectures-turning-the-page-and-distant-writing": "/blog-posts/two-recent-lectures-turning-the-page-and-distant-writing.html",
+  "/blog/presentations-2/recent-lecture-technological-imperialism-and-digital-writing": "/blog-posts/recent-lecture-technological-imperialism-and-digital-writing.html",
+  "/blog/creative-work/obra-nueva-bot-de-santos-olvidados": "/blog-posts/obra-nueva-bot-de-santos-olvidados.html",
+  "/blog/presentations-2/presentation-print-screen-reading-computer-generated-writing": "/blog-posts/presentation-print-screen-reading-computer-generated-writing.html",
+  "/blog/presentations-2/digital-colonialism-electronic-literature-as-resistance": "/blog-posts/digital-colonialism-electronic-literature-as-resistance.html",
+  "/blog/news/help-wanted-creating-an-ethnic-american-e-literature-course": "/blog-posts/help-wanted-creating-an-ethnic-american-e-literature-course.html",
+  "/blog/presentations-2/new-talk-digital-writing-digital-divides-in-the-us-electronic-literature-privilege": "/blog-posts/new-talk-digital-writing-digital-divides-in-the-us-electronic-literature-privilege.html",
+  "/blog/news/my-elo-presidency-2019-2022": "/blog-posts/my-elo-presidency-2019-2022.html",
+  "/blog/proposals/cultivemos-las-letras-digitales": "/blog-posts/cultivemos-las-letras-digitales.html",
+  "/blog/presentations-2/twitter-mastodon-bot-workshop-at-aelaiwc2022": "/blog-posts/twitter-mastodon-bot-workshop-at-aelaiwc2022.html",
+  "/blog/news/goodbye-elo-board-of-directors-hello-lab-and-new-initiatives": "/blog-posts/goodbye-elo-board-of-directors-hello-lab-and-new-initiatives.html",
+  "/blog/presentations-2/keynote-elit-origin-stories-awakening-to-the-potential-of-digital-writing": "/blog-posts/keynote-elit-origin-stories-awakening-to-the-potential-of-digital-writing.html",
+  "/blog/courses/new-syllabus-ethnic-american-digital-literature-and-writing": "/blog-posts/new-syllabus-ethnic-american-digital-literature-and-writing.html",
+  "/blog/resources/electronic-literature-publications-and-open-calls-may-2023-roundup": "/blog-posts/electronic-literature-publications-and-open-calls-may-2023-roundup.html",
+  "/blog/creative-work/new-creative-works-tentative-and-its-complicated": "/blog-posts/new-creative-works-tentative-and-its-complicated.html",
+  "/blog/creative-work/rescued-and-renewed-works-taco-hell-menu-tiny-protests-jurakan-borinqueno-protestitas-and-a-bonus": "/blog-posts/rescued-and-renewed-works-taco-hell-menu-tiny-protests-jurakan-borinqueno-protestitas-and-a-bonus.html",
+  "/blog/presentations-2/presentation-a-hackeur-primer": "/blog-posts/presentation-a-hackeur-primer.html",
+  "/blog/news/hello-world-invite-me-im-on-the-fulbright-specialist-program": "/blog-posts/hello-world-invite-me-im-on-the-fulbright-specialist-program.html",
+  "/blog/presentations-2/mla-presentation-cyborg-authors-and-the-eliza-effect": "/blog-posts/mla-presentation-cyborg-authors-and-the-eliza-effect.html",
+  "/blog/presentations-2/keynote-using-ai-responsibly-in-research-and-creativity": "/blog-posts/keynote-using-ai-responsibly-in-research-and-creativity.html",
+  "/blog/presentations-2/presentation-ai-writing-for-newbies": "/blog-posts/presentation-ai-writing-for-newbies.html",
+  "/blog/presentations-2/presentation-la-literatura-electronica-en-los-tiempos-de-la-inteligencia-artificial": "/blog-posts/presentation-la-literatura-electronica-en-los-tiempos-de-la-inteligencia-artificial.html",
+  "/blog/presentations-2/mla-ade-adl": "/blog-posts/mla-ade-adl.html",
+  "/blog/resources/a-cyborg-digital-writing-primer": "/blog-posts/a-cyborg-digital-writing-primer.html",
+  "/blog/presentations-2/presentation-becoming-cyborg-writers-a-future-for-humanists-in-an-ai-inflected-world": "/blog-posts/presentation-becoming-cyborg-writers-a-future-for-humanists-in-an-ai-inflected-world.html",
+  "/blog/presentations-2/the-cyborg-hackeur-workshop": "/blog-posts/the-cyborg-hackeur-workshop.html",
+  "/blog/presentations-2/keynote-the-digital-humanities-in-an-ai-inflected-world": "/blog-posts/keynote-the-digital-humanities-in-an-ai-inflected-world.html",
+  "/blog/presentations-2/plenary-talk-digital-writing-and-access-using-ai-to-bridge-digital-divides": "/blog-posts/plenary-talk-digital-writing-and-access-using-ai-to-bridge-digital-divides.html",
+  "/blog/presentations-2/mla-2025-presentation-a-cyborg-creative-coding-practice": "/blog-posts/mla-2025-presentation-a-cyborg-creative-coding-practice.html",
+  "/blog/presentations-2/panel-empowering-students-with-ai-literacy": "/blog-posts/panel-empowering-students-with-ai-literacy.html",
+  "/blog/creative-work/wordhack-performance-and-recent-creative-works": "/blog-posts/wordhack-performance-and-recent-creative-works.html",
+  "/blog/presentations-2/invited-lecture-dr-cyberleo-or-how-i-learned-to-stop-worrying-and-love-ai": "/blog-posts/invited-lecture-dr-cyberleo-or-how-i-learned-to-stop-worrying-and-love-ai.html",
+  "/blog/presentations-2/keynote-peering-through-the-cloud-finding-our-way-with-ai-at-app-state": "/blog-posts/keynote-peering-through-the-cloud-finding-our-way-with-ai-at-app-state.html",
+  "/blog/presentations-2/taller-ymaquina-programacion-de-literatura-electronica-con-ia": "/blog-posts/taller-ymaquina-programacion-de-literatura-electronica-con-ia.html",
+  "/blog/news/leo-isea-2025-seoul": "/blog-posts/leo-isea-2025-seoul.html",
+  "/blog/presentations-2/webinar-technology-and-evolving-research-practices-in-the-humanities": "/blog-posts/webinar-technology-and-evolving-research-practices-in-the-humanities.html",
+  "/blog/presentations-2/presentations-at-the-elo-2025-conference": "/blog-posts/presentations-at-the-elo-2025-conference.html",
+  "/blog/news/leo-iit-jodhpur": "/blog-posts/leo-iit-jodhpur.html",
+  "/blog/news/public-lecture-the-importance-of-digital-writing-in-the-age-of-ai": "/blog-posts/public-lecture-the-importance-of-digital-writing-in-the-age-of-ai.html",
+  "/blog/presentations-2/presentacion-la-literatura-electronica-y-su-adopcion-social": "/blog-posts/presentacion-la-literatura-electronica-y-su-adopcion-social.html",
+  "/blog/presentations-2/leo-mla-2026-convention": "/blog-posts/leo-mla-2026-convention.html",
+  "/blog/news/blog-migration-in-progress": "/blog-posts/blog-migration-in-progress.html"
+};
+
+// Get the current path (without trailing slash)
+const currentPath = window.location.pathname.replace(/\/$/, '');
+
+// Check if this path should be redirected
+if (redirectMap[currentPath]) {
+  const newUrl = redirectMap[currentPath];
+
+  // Show redirect message
+  document.getElementById('redirect-message').style.display = 'block';
+  document.getElementById('not-found-message').style.display = 'none';
+  document.getElementById('new-url').textContent = 'New URL: ' + window.location.origin + newUrl;
+
+  // Redirect after a short delay to show the message
+  setTimeout(() => {
+    window.location.href = newUrl;
+  }, 1500);
+} else {
+  // No redirect found, show 404 message
+  console.log('No redirect found for:', currentPath);
+}
+</script>
