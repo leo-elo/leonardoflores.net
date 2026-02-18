@@ -208,7 +208,18 @@ const redirectMap = {
   "/blog/news/public-lecture-the-importance-of-digital-writing-in-the-age-of-ai": "/blog-posts/public-lecture-the-importance-of-digital-writing-in-the-age-of-ai.html",
   "/blog/presentations-2/presentacion-la-literatura-electronica-y-su-adopcion-social": "/blog-posts/presentacion-la-literatura-electronica-y-su-adopcion-social.html",
   "/blog/presentations-2/leo-mla-2026-convention": "/blog-posts/leo-mla-2026-convention.html",
-  "/blog/news/blog-migration-in-progress": "/blog-posts/blog-migration-in-progress.html"
+  "/blog/news/blog-migration-in-progress": "/blog-posts/blog-migration-in-progress.html",
+
+  // Course redirects to courses subdomain
+  "/capstone": "https://courses.leonardoflores.net/capstone/",
+  "/poetry": "https://courses.leonardoflores.net/poetry/",
+  "/elit": "https://courses.leonardoflores.net/elit/",
+  "/2360": "https://courses.leonardoflores.net/2360/",
+  "/4795": "https://courses.leonardoflores.net/4795/",
+  "/5000": "https://courses.leonardoflores.net/5000/",
+  "/5150": "https://courses.leonardoflores.net/5150/",
+  "/5535": "https://courses.leonardoflores.net/5535/",
+  "/4790": "https://courses.leonardoflores.net/4790/"
 };
 
 // Get the current path (without trailing slash)
@@ -221,11 +232,12 @@ if (redirectMap[currentPath]) {
   // Show redirect message
   document.getElementById('redirect-message').style.display = 'block';
   document.getElementById('not-found-message').style.display = 'none';
-  document.getElementById('new-url').textContent = 'New URL: ' + window.location.origin + newUrl;
+  const isExternal = newUrl.startsWith('http');
+  document.getElementById('new-url').textContent = 'New URL: ' + (isExternal ? newUrl : window.location.origin + newUrl);
 
   // Redirect after a short delay to show the message
   setTimeout(() => {
-    window.location.href = newUrl;
+    window.location.href = isExternal ? newUrl : newUrl;
   }, 1500);
 } else {
   // No redirect found, show 404 message
