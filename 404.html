@@ -222,13 +222,22 @@ const redirectMap = {
   "/4790": "https://courses.leonardoflores.net/4790/"
 };
 
+// Course prefixes that should redirect to courses subdomain
+const coursePrefixes = ['/capstone', '/poetry', '/elit', '/2360', '/4795', '/5000', '/5150', '/5535', '/4790'];
+
 // Get the current path (without trailing slash)
 const currentPath = window.location.pathname.replace(/\/$/, '');
 
-// Check if this path should be redirected
-if (redirectMap[currentPath]) {
-  const newUrl = redirectMap[currentPath];
+// Check for course subpath redirects first
+let newUrl = null;
+const courseMatch = coursePrefixes.find(prefix => currentPath === prefix || currentPath.startsWith(prefix + '/'));
+if (courseMatch) {
+  newUrl = 'https://courses.leonardoflores.net' + window.location.pathname;
+} else if (redirectMap[currentPath]) {
+  newUrl = redirectMap[currentPath];
+}
 
+if (newUrl) {
   // Show redirect message
   document.getElementById('redirect-message').style.display = 'block';
   document.getElementById('not-found-message').style.display = 'none';
@@ -237,7 +246,7 @@ if (redirectMap[currentPath]) {
 
   // Redirect after a short delay to show the message
   setTimeout(() => {
-    window.location.href = isExternal ? newUrl : newUrl;
+    window.location.href = newUrl;
   }, 1500);
 } else {
   // No redirect found, show 404 message
