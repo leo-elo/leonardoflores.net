@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weeks 4-5: Hypertext and Video Games | ENG 2360: American Literature and the Arts</title>
+  <meta name="description" content="English 2360: American Literature and the Arts">
+  <link rel="stylesheet" href="/courses/course-eng2360/assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="/courses/course-eng2360/" class="sidebar-title">ENG 2360: American Literature and the Arts</a>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        
+        
+        <li class="nav-term-header">Spring 2024</li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-1-startup/">
+            <span class="nav-title">Week 1: Startup</span>
+            <span class="nav-meta">2024-01-11</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/weeks-2-3-generative-writing-2/">
+            <span class="nav-title">Weeks 2-3: Generative Writing</span>
+            <span class="nav-meta">2024-01-22</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-4-hypertext/">
+            <span class="nav-title">Week 4: Hypertext</span>
+            <span class="nav-meta">2024-02-05</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-5-interactive-fiction-and-8-bit-games/">
+            <span class="nav-title">Week 5: Interactive Fiction and 8-bit Games</span>
+            <span class="nav-meta">2024-02-12</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-6-literary-video-games/">
+            <span class="nav-title">Week 6: Literary Video Games</span>
+            <span class="nav-meta">2024-02-19</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-7-keith-wilsons-poetry-and-poetics/">
+            <span class="nav-title">Week 7: Keith Wilson's Poetry and Poetics</span>
+            <span class="nav-meta">2024-02-26</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-8-building-twisty-little-passages/">
+            <span class="nav-title">Week 8: Building Twisty Little Passages</span>
+            <span class="nav-meta">2024-03-04</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/weeks-9-10-spring-break-and-writing-on-video/">
+            <span class="nav-title">Weeks 9-10: Spring Break and Writing on Video</span>
+            <span class="nav-meta">2024-03-18</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-11-videopoetry/">
+            <span class="nav-title">Week 11: Videopoetry</span>
+            <span class="nav-meta">2024-03-25</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-12-literature-in-real-and-virtual-worlds/">
+            <span class="nav-title">Week 12: Literature in Real and Virtual Worlds</span>
+            <span class="nav-meta">2024-04-01</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-13-jason-edward-lewis/">
+            <span class="nav-title">Week 13: Jason Edward Lewis</span>
+            <span class="nav-meta">2024-04-08</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-14-lillian-yvonne-bertram/">
+            <span class="nav-title">Week 14: Lillian Yvonne Bertram</span>
+            <span class="nav-meta">2024-04-15</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-15-latinx-digital-poetry/">
+            <span class="nav-title">Week 15: Latinx Digital Poetry</span>
+            <span class="nav-meta">2024-04-22</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-16-shutdown-2/">
+            <span class="nav-title">Week 16: Shutdown</span>
+            <span class="nav-meta">2024-04-29</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="nav-term-header">Fall 2023</li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/fall-2023-underrepresented-voices-in-digital-literature/">
+            <span class="nav-title">Fall 2023: Underrepresented Voices in Digital Literature</span>
+            <span class="nav-meta">2023-08-17</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-1-what-is-electronic-literature/">
+            <span class="nav-title">Week 1: What is Electronic Literature? And who gets to write it?</span>
+            <span class="nav-meta">2023-08-21</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/weeks-2-3-generative-writing/">
+            <span class="nav-title">Weeks 2-3: Generative Writing</span>
+            <span class="nav-meta">2023-08-28</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/creative-project-1-generative-writing/">
+            <span class="nav-title">Creative Project #1: Generative Writing</span>
+            <span class="nav-meta">2023-09-06</span>
+            <span class="nav-meta">["Assignments"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="active">
+          <a href="/courses/course-eng2360/weeks-4-5-hypertext-and-video-games/">
+            <span class="nav-title">Weeks 4-5: Hypertext and Video Games</span>
+            <span class="nav-meta">2023-09-11</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-6-meaningful-interactivity/">
+            <span class="nav-title">Week 6: Meaningful Interactivity</span>
+            <span class="nav-meta">2023-09-25</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/creative-project-2-interactive-work/">
+            <span class="nav-title">Creative Project #2: Interactive Work</span>
+            <span class="nav-meta">2023-10-02</span>
+            <span class="nav-meta">["Assignments"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-7-building-twisty-little-passages/">
+            <span class="nav-title">Week 7: Building Twisty Little Passages</span>
+            <span class="nav-meta">2023-10-02</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-8-9-dancing-language/">
+            <span class="nav-title">Weeks 8-9: Dancing Language</span>
+            <span class="nav-meta">2023-10-09</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-10-performing-with-screens/">
+            <span class="nav-title">Week 10: Performing With Screens</span>
+            <span class="nav-meta">2023-10-23</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-11-installations-and-virtual-spaces/">
+            <span class="nav-title">Week 11: Installations and Virtual Spaces</span>
+            <span class="nav-meta">2023-10-30</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/research-paper/">
+            <span class="nav-title">Research Paper</span>
+            <span class="nav-meta">2023-11-03</span>
+            <span class="nav-meta">["Assignments"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-12-jason-edward-lewis/">
+            <span class="nav-title">Week 12: Jason Edward Lewis</span>
+            <span class="nav-meta">2023-11-06</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-13-lillian-yvonne-bertram/">
+            <span class="nav-title">Week 13: Lillian-Yvonne Bertram</span>
+            <span class="nav-meta">2023-11-13</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-14-a-fun-neal-fun-interval/">
+            <span class="nav-title">Week 14: A Fun (Neal.fun) Interval</span>
+            <span class="nav-meta">2023-11-20</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-15-loss-pequeno-glazier/">
+            <span class="nav-title">Week 15: Loss Pequeño Glazier</span>
+            <span class="nav-meta">2023-11-27</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-16-shutdown/">
+            <span class="nav-title">Week 16: Shutdown</span>
+            <span class="nav-meta">2023-12-04</span>
+            <span class="nav-meta">["Assignments"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="nav-term-header">Fall 2020</li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/fall-2020-startup/">
+            <span class="nav-title">Fall 2020: Startup</span>
+            <span class="nav-meta">2020-08-17</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-1-ut-pictura-poesis/">
+            <span class="nav-title">Week 1: Literature and the Arts</span>
+            <span class="nav-meta">2020-08-18</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-2-ekphastic-poetry/">
+            <span class="nav-title">Week 2: Ekphastic Poetry</span>
+            <span class="nav-meta">2020-08-25</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-3-painting-with-words/">
+            <span class="nav-title">Week 3: Painting with Words</span>
+            <span class="nav-meta">2020-09-01</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-4-concrete-poetry/">
+            <span class="nav-title">Week 4: Looking at Poems</span>
+            <span class="nav-meta">2020-09-08</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-5-verbivocovisual/">
+            <span class="nav-title">Week 5 : Verbivocovisual</span>
+            <span class="nav-meta">2020-09-15</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/essay-1-analysis-and-interpretation-of-an-ekphrastic-or-concrete-poem/">
+            <span class="nav-title">Essay #1: Analysis and Interpretation of an Ekphrastic Poem or Concrete Poems</span>
+            <span class="nav-meta">2020-09-15</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-6-poetry-and-music/">
+            <span class="nav-title">Week 6: Poetry and Music</span>
+            <span class="nav-meta">2020-09-22</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-7-recorded-poetry/">
+            <span class="nav-title">Week 7: Recorded Poetry</span>
+            <span class="nav-meta">2020-09-29</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-8-multimodality-and-performance/">
+            <span class="nav-title">Week 8: Multimodality and Performance</span>
+            <span class="nav-meta">2020-10-06</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/essay-2-analysis-and-interpretation-of-sound-in-poetry/">
+            <span class="nav-title">Essay #2: Sound and Performance in Poetry</span>
+            <span class="nav-meta">2020-10-08</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-9-videopoetry/">
+            <span class="nav-title">Week 9: Videopoetry</span>
+            <span class="nav-meta">2020-10-13</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-10-videopoetry/">
+            <span class="nav-title">Week 10: Videopoetry</span>
+            <span class="nav-meta">2020-10-20</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-11-dancing-language/">
+            <span class="nav-title">Week 11: Dancing Language</span>
+            <span class="nav-meta">2020-10-27</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-12-distant-writing/">
+            <span class="nav-title">Week 12: Distant Writing</span>
+            <span class="nav-meta">2020-11-03</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/essay-3-words-in-motion/">
+            <span class="nav-title">Essay #3: Words in Motion</span>
+            <span class="nav-meta">2020-11-10</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-13-interactivity/">
+            <span class="nav-title">Week 13: Interactivity</span>
+            <span class="nav-meta">2020-11-10</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-14-digital-convergence/">
+            <span class="nav-title">Week 14: Digital Convergence</span>
+            <span class="nav-meta">2020-11-17</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/week-15-digital-writing-and-art/">
+            <span class="nav-title">Week 15: Digital Writing and Art</span>
+            <span class="nav-meta">2020-11-24</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/essay-4-analyzing-electronic-literature/">
+            <span class="nav-title">Essay #4: Analyzing Electronic Literature</span>
+            <span class="nav-meta">2020-11-24</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="nav-term-header">Spring 2020</li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/hello-students/">
+            <span class="nav-title">Hello Students</span>
+            <span class="nav-meta">2020-01-13</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/course-redesign/">
+            <span class="nav-title">Course Redesign</span>
+            <span class="nav-meta">2020-03-23</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/weeks-10-11-understanding-v-for-vendetta/">
+            <span class="nav-title">Weeks 10 & 11: Understanding V for Vendetta</span>
+            <span class="nav-meta">2020-03-30</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/weeks-12-13-moving-pictures/">
+            <span class="nav-title">Weeks 12-13: Moving Pictures</span>
+            <span class="nav-meta">2020-04-16</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="/courses/course-eng2360/weeks-14-15-digital-convergence/">
+            <span class="nav-title">Weeks 14-15: Digital Convergence</span>
+            <span class="nav-meta">2020-04-22</span>
+            <span class="nav-meta">["posts"]</span>
+          </a>
+        </li>
+        
+        
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    
+<div class="banner" style="background-image: url('/courses/course-eng2360/assets/uploads/sites/6/2023/09/readerplayer.png');">
+  <div class="banner-overlay">
+    <h1 class="banner-title">Weeks 4-5: Hypertext and Video Games</h1>
+    <p class="banner-description">September 11, 2023</p>
+  </div>
+</div>
+
+<article class="page-content"><h1>Monday, September 11</h1>
+<h2>In class:</h2>
+<ul>
+ 	<li>Rettberg, <i>Electronic Literature,</i> Chapter 3: Hypertext Fiction</li>
+ 	<li>Read "<a href="https://collection.eliterature.org/1/works/jackson__my_body_a_wunderkammer.html">My Body: A Wunderkammer</a>" by Shelley Jackson
+<ul>
+ 	<li>Pair and share: Discuss how you navigated this work and some other ways of reading it. How do we reach a sense of an ending with this work?</li>
+</ul>
+</li>
+ 	<li>Working on Creative Project #1</li>
+ 	<li>"<a href="https://collection.eliterature.org/3/work.html?work=hunt-for-the-gay-planet">The Hunt for the Gay Planet</a>" by Anna Anthropy</li>
+</ul>
+<h2>Assignment:</h2>
+<ul>
+ 	<li>Read
+<ul>
+ 	<li>“<a href="https://collection.eliterature.org/3/work.html?work=quings-quest-vii">Quing’s Quest VII: The Death of Videogames!</a>” by Dietrich Squinkifer (Squinky)</li>
+</ul>
+</li>
+ 	<li>In our forum, write a brief response to Squinky's Twine game, discussing some of the strategies they use to shape the reader's experience.</li>
+</ul>
+<h1>Wednesday, September 13</h1>
+<h2>In class:</h2>
+<ul>
+ 	<li>“<a href="https://collection.eliterature.org/3/work.html?work=quings-quest-vii">Quing’s Quest VII: The Death of Videogames!</a>” by Dietrich Squinkifer (Squinky)</li>
+ 	<li><a href="https://the-next.eliterature.org/search?q=jason+nelson">Jason Nelson's Flash Games on The Next</a></li>
+ 	<li>"<a href="https://collection.eliterature.org/4/thoughts-and-prayers-the-game">Thoughts and Prayers: The Game</a>" by Mike Lacher</li>
+ 	<li>Working on Creative Project #1</li>
+</ul>
+<h2>Assignment:</h2>
+Materials for Asynchronous Class
+<ul>
+ 	<li>“<a href="https://collection.eliterature.org/4/when-rivers-were-trails">When Rivers Were Trails</a>” by Indian Land Tenure Foundation &amp; GEL Lab at MSU</li>
+</ul>
+<h1>Friday, September 15</h1>
+<h2>Asynchronous class:</h2>
+<ul>
+ 	<li>In our forum, write a 250 word (approximately) post in which you analyze “<a id="yui_3_17_2_1_1694616464805_813" href="https://collection.eliterature.org/4/when-rivers-were-trails">When Rivers Were Trails</a>” and discuss what insights you find about the game. What can video games contribute to literature? This is due by Saturday morning.</li>
+ 	<li>Read and respond to one classmate's postings before class on Monday.</li>
+</ul>
+<h2>Assignment:</h2>
+<ul>
+ 	<li>Read
+<ul>
+ 	<li>Rettberg, <i>Electronic Literature,</i> Chapter 4: Interactive Fiction and Other Gamelike Forms</li>
+ 	<li>Work on your Creative Project. It's due on Monday!</li>
+</ul>
+</li>
+</ul>
+<h1>Monday, September 18</h1>
+<ul>
+ 	<li>In class:
+<ul>
+ 	<li>Discuss Creative Work #1</li>
+ 	<li>Rettberg, <i>Electronic Literature,</i> Chapter 4: Interactive Fiction and Other Gamelike Forms</li>
+ 	<li><a href="https://taper.badquar.to/8/lambda_blaster.html">“Lambda Blaster”</a> by Sebastian Bartlett Hernández</li>
+ 	<li>"<a href="http://iloveepoetry.org/?p=5789">Hotel in Limbo</a>" by Arnt Jensen and Dino Patti</li>
+ 	<li>"<a href="https://collection.eliterature.org/4/a-slow-year">A Slow Year</a>" by Ian Bogost</li>
+ 	<li>Creative Work #1 Due</li>
+</ul>
+</li>
+ 	<li>Assignment:
+<ul>
+ 	<li>Play one of these games
+<ul>
+ 	<li>"<a href="http://www.motorhueso.net/wuwei/lines-of-force/">Lines of Force</a>" by Eugenio Tisselli</li>
+ 	<li>"<a href="https://collection.eliterature.org/3/work.html?work=dwarf-fortress">Dwarf Fortress</a>" by Tarn Adams and Zach Adams</li>
+ 	<li>"<a href="http://textadventures.co.uk/games/view/emrhyy7pp0c8bjkjeuhs-g/galatea">Galatea</a>" by Emily Short</li>
+</ul>
+</li>
+ 	<li>Write a reaction/response to your chosen game, the ideas the authors want to communicate, and how the game mechanics help express these ideas.</li>
+</ul>
+</li>
+</ul>
+<h1>Wednesday, September 20</h1>
+<h2>In class:</h2>
+<ul>
+ 	<li>"<a href="http://www.motorhueso.net/wuwei/lines-of-force/">Lines of Force</a>" by Eugenio Tisselli</li>
+ 	<li>"<a href="https://collection.eliterature.org/3/work.html?work=dwarf-fortress">Dwarf Fortress</a>" by Tarn Adams and Zach Adams</li>
+ 	<li>"<a href="http://textadventures.co.uk/games/view/emrhyy7pp0c8bjkjeuhs-g/galatea">Galatea</a>" by Emily Short</li>
+</ul>
+<h2>Assignment:</h2>
+<ul>
+ 	<li>“<a href="https://keithswilson.com/test/">Experimental Digital Poetics</a>” by Keith S. Wilson</li>
+</ul>
+<h1>Friday, September 22</h1>
+<h2>Asynchronous Class</h2>
+<ul>
+ 	<li>In our forum, write a 250 word (approximately) post in which you analyze two of Keith Wilson's experimental poems and discuss what insights you find about the work. This is due by Saturday morning.</li>
+</ul>
+<h2>Assignment:</h2>
+<ul>
+ 	<li>Start thinking about what you might want to do for Creative Project #2. Here's the excerpt from the syllabus:</li>
+</ul>
+<ul>
+ 	<li style="list-style-type: none;">
+<ul>
+ 	<li aria-level="1">Interactive Work
+<ul>
+ 	<li aria-level="2">Use <a href="https://twinery.org/">Twine</a>, <a href="https://bitsy.org/">Bitsy</a>, or <a href="http://textadventures.co.uk/squiffy">Squiffy</a> to create a literary videogame, hypertext work, or interactive fiction.</li>
+ 	<li aria-level="2">Accompany this with a 1-page discussion of your goals with the work, some of the challenges you faced in creating it, and what it helped you learn about interactive writing.</li>
+ 	<li aria-level="2">I will offer a hands-on workshop in class to help you learn how to use these systems.</li>
+ 	<li aria-level="2">A brief proposal with your thesis statement, line of argument and will be due 2 weeks before the project is due.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></article>
+
+
+    
+    
+    
+    
+    <nav class="page-nav">
+      
+      
+      
+      
+      
+        
+        
+        <a href="/courses/course-eng2360/creative-project-1-generative-writing/" class="page-nav-link page-nav-prev">
+          <span class="page-nav-arrow">&larr;</span>
+          <span class="page-nav-label"><small>Previous</small>Creative Project #1: Generative Writing</span>
+        </a>
+        
+      
+      
+        
+        
+        <a href="/courses/course-eng2360/week-6-meaningful-interactivity/" class="page-nav-link page-nav-next">
+          <span class="page-nav-label"><small>Next</small>Week 6: Meaningful Interactivity</span>
+          <span class="page-nav-arrow">&rarr;</span>
+        </a>
+        
+      
+    </nav>
+    
+
+    <footer class="site-footer">
+      <p>&copy; 2026 ENG 2360: American Literature and the Arts &mdash; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0 Creative Commons Attribution 4.0 International</a></p>
+    </footer>
+  </main>
+
+  <script>
+    const h = document.getElementById('hamburger');
+    const s = document.getElementById('sidebar');
+    const o = document.getElementById('sidebar-overlay');
+    h.addEventListener('click', () => { s.classList.toggle('open'); o.classList.toggle('open'); h.classList.toggle('open'); });
+    o.addEventListener('click', () => { s.classList.remove('open'); o.classList.remove('open'); h.classList.remove('open'); });
+  </script>
+</body>
+</html>
