@@ -41,4 +41,3 @@ exclude:
   - convert_to_jekyll.py
   - README.md
   - vendor
-  - courses
