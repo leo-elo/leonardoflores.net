@@ -289,6 +289,14 @@ img {
   margin-top: 24px;
   font-size: 1rem;
 }
+.home-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.home-links li {
+  padding: 0.15rem 0;
+}
 
 .home-links a {
   color: #fff;
@@ -547,4 +555,46 @@ img {
   .home-title {
     font-size: 1.6rem;
   }
+}
+
+/* ── Term dividers ─────────────────────────────────────────────────── */
+.term-divider {
+  grid-column: 1 / -1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #AE1303;
+  border-bottom: 2px solid #AE1303;
+  padding-bottom: 0.4rem;
+  margin-top: 1.5rem;
+}
+.term-divider:first-child { margin-top: 0; }
+
+/* ── Cards without featured image ─────────────────────────────────── */
+.visual-card--no-image {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  background: #f8f8f8;
+  border-left: 4px solid #AE1303;
+}
+.visual-card--no-image .visual-card-info {
+  padding: 0.75rem 1rem;
+}
+.visual-card--no-image .visual-card-title {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ── Sidebar term headers ──────────────────────────────────────────── */
+.nav-term-header {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #AE1303;
+  padding: 1rem 1rem 0.25rem;
+  pointer-events: none;
+  list-style: none;
 }
