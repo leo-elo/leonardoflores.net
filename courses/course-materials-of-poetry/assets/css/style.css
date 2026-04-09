@@ -598,3 +598,33 @@ img {
   pointer-events: none;
   list-style: none;
 }
+
+/* ===== Site Topbar ===== */
+.site-topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 36px;
+  background: #111;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1.5rem;
+  z-index: 300;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.site-topbar a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.site-topbar a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+/* Offset layout for topbar */
+.sidebar { top: 36px; height: calc(100vh - 36px); }
+.main-content { padding-top: 36px; }
+.hamburger { top: 50px; }
