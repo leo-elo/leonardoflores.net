@@ -174,6 +174,7 @@
         </li>
         
         
+        
       </ul>
     </nav>
   </aside>
@@ -257,6 +258,30 @@
       overlay.classList.remove('open');
       hamburger.classList.remove('open');
     });
+
+    // Promo modal
+    document.querySelectorAll('.promo-trigger').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('promoImg').src = this.dataset.src;
+        document.getElementById('promoModal').classList.add('active');
+      });
+    });
+    var modal = document.getElementById('promoModal');
+    modal.addEventListener('click', function(e) {
+      if (e.target !== document.getElementById('promoImg')) this.classList.remove('active');
+    });
+    document.getElementById('promoClose').addEventListener('click', function() {
+      document.getElementById('promoModal').classList.remove('active');
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') document.getElementById('promoModal').classList.remove('active');
+    });
   </script>
+
+  <div class="promo-modal" id="promoModal">
+    <button class="promo-modal-close" id="promoClose">&times;</button>
+    <img src="" id="promoImg" alt="Course Promo">
+  </div>
 </body>
 </html>

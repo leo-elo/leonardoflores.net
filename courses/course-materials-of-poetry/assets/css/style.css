@@ -628,3 +628,47 @@ img {
 .sidebar { top: 36px; height: calc(100vh - 36px); }
 .main-content { padding-top: 36px; }
 .hamburger { top: 50px; }
+
+/* ===== Course Promos ===== */
+.promo-trigger {
+  display: block;
+  font-size: 0.82rem;
+  color: #555;
+  padding: 0.2rem 1rem;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.promo-trigger:hover { color: #AE1303; text-decoration: none; }
+
+.promo-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.93);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.promo-modal.active { display: flex; }
+.promo-modal img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  cursor: default;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.6);
+}
+.promo-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: #fff;
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.promo-modal-close:hover { opacity: 1; }

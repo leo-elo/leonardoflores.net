@@ -1028,6 +1028,22 @@
         </li>
         
         
+        
+        <li class="nav-term-header">Course Promos</li>
+        
+        <li>
+          <a href="#" class="promo-trigger" data-src="/courses/course-materials-of-poetry/assets/promos/promo-fall-2023.png">
+            <span class="nav-title">Fall 2023</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="#" class="promo-trigger" data-src="/courses/course-materials-of-poetry/assets/promos/promo-fall-2022.png">
+            <span class="nav-title">Fall 2022</span>
+          </a>
+        </li>
+        
+        
       </ul>
     </nav>
   </aside>
@@ -1141,6 +1157,30 @@
     const o = document.getElementById('sidebar-overlay');
     h.addEventListener('click', () => { s.classList.toggle('open'); o.classList.toggle('open'); h.classList.toggle('open'); });
     o.addEventListener('click', () => { s.classList.remove('open'); o.classList.remove('open'); h.classList.remove('open'); });
+
+    // Promo modal
+    document.querySelectorAll('.promo-trigger').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('promoImg').src = this.dataset.src;
+        document.getElementById('promoModal').classList.add('active');
+      });
+    });
+    var modal = document.getElementById('promoModal');
+    modal.addEventListener('click', function(e) {
+      if (e.target !== document.getElementById('promoImg')) this.classList.remove('active');
+    });
+    document.getElementById('promoClose').addEventListener('click', function() {
+      document.getElementById('promoModal').classList.remove('active');
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') document.getElementById('promoModal').classList.remove('active');
+    });
   </script>
+
+  <div class="promo-modal" id="promoModal">
+    <button class="promo-modal-close" id="promoClose">&times;</button>
+    <img src="" id="promoImg" alt="Course Promo">
+  </div>
 </body>
 </html>
