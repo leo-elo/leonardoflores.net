@@ -47,36 +47,12 @@ Then visit `http://localhost:4000`. Changes to most files hot-reload; `_config.y
 
 With the server running, visit `http://localhost:4000/_jekyll_admin/` for a GUI to create and edit posts without touching the terminal. Changes are saved directly to the local files; commit and push as usual to deploy.
 
----
+### Editing from any browser (GitHub web editor)
 
-## Content Management (Decap CMS — live site)
+Since the repo is on GitHub, you can create and edit posts without running anything locally:
 
-The live admin interface is at `https://leonardoflores.net/admin/`. It lets you create and edit posts from any browser; changes are committed directly to the `gh-pages` branch and trigger an automatic deploy.
-
-### One-time setup (required before first use)
-
-**Step 1 — Register a GitHub OAuth App**
-
-1. Go to GitHub → Settings → Developer settings → OAuth Apps → **New OAuth App**
-2. Fill in:
-   - Application name: `leonardoflores.net CMS`
-   - Homepage URL: `https://leonardoflores.net`
-   - Authorization callback URL: `https://api.netlify.com/auth/done`
-3. Click **Register application**, then note the **Client ID** and generate a **Client Secret**
-
-**Step 2 — Configure Netlify as the OAuth proxy**
-
-1. Create a free account at [netlify.com](https://netlify.com) (no need to host the site there)
-2. Create any new site (a blank placeholder is fine)
-3. Go to **Site Settings → Access control → OAuth → Install provider**
-4. Choose **GitHub**, paste in the Client ID and Client Secret from Step 1
-5. Save
-
-That's it. Visit `https://leonardoflores.net/admin/`, click **Login with GitHub**, and the CMS is ready.
-
-### CMS config file
-
-`admin/config.yml` defines all fields and collections. To add new fields to posts or create new content types, edit that file.
+- **New post:** go to `github.com/leo-elo/leonardoflores.net/tree/gh-pages/_posts` → **Add file → Create new file**. Name it `YYYY-MM-DD-slug.html`, add front matter and content, commit — deploy triggers automatically.
+- **Full editor:** press `.` anywhere in the repo on GitHub to open a VS Code-style editor in the browser (`github.dev`).
 
 ---
 
