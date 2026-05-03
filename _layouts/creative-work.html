@@ -1,0 +1,119 @@
+---
+layout: default
+---
+<style>
+.cw-hero {
+    width: 100%;
+    max-height: 450px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+.cw-hero img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+.cw-page {
+    max-width: 780px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem 4rem;
+}
+.cw-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+}
+.cw-meta {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-accent);
+}
+.cw-body {
+    line-height: 1.85;
+    margin-bottom: 2rem;
+}
+.cw-body p { margin-bottom: 1.25rem; }
+.cw-body pre {
+    background: var(--color-background-alt);
+    border-left: 4px solid #FDE801;
+    padding: 1rem 1.5rem;
+    overflow-x: auto;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    white-space: pre;
+}
+.cw-body code { font-family: 'Courier New', Courier, monospace; }
+.cw-publications {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--color-accent);
+}
+.cw-publications h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-light);
+    margin-bottom: 0.75rem;
+}
+.cw-publications ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+.cw-publications li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+.cw-publications a { color: var(--color-primary); }
+.cw-cta {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+.btn-view-work {
+    display: inline-block;
+    padding: 14px 36px;
+    background-color: #FDE801;
+    color: #000 !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 1.05rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-view-work:hover {
+    background-color: var(--color-primary);
+    color: #FDE801 !important;
+}
+@media (max-width: 768px) {
+    .cw-hero img { height: 280px; }
+    .cw-title { font-size: 1.75rem; }
+}
+</style>
+
+{% if page.featured_image %}
+<div class="cw-hero">
+    <img src="{{ page.featured_image | relative_url }}"
+         alt="{{ page.featured_image_alt | default: page.title }}">
+</div>
+{% endif %}
+
+<div class="cw-page">
+    <h1 class="cw-title">{{ page.title }}</h1>
+    {% if page.work_meta %}<p class="cw-meta">{{ page.work_meta }}</p>{% endif %}
+    <div class="cw-body">
+        {{ content }}
+    </div>
+    {% if page.work_url %}
+    <p class="cw-cta">
+        <a href="{{ page.work_url }}" class="btn-view-work" target="_blank" rel="noopener">View Work →</a>
+    </p>
+    {% endif %}
+</div>
