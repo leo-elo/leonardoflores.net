@@ -1,0 +1,35 @@
+backend:
+  name: github
+  repo: leo-elo/leonardoflores.net
+  branch: gh-pages
+  base_url: https://api.netlify.com
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "html"
+    format: "frontmatter"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false}
+      - label: "Categories"
+        name: "categories"
+        widget: "select"
+        multiple: true
+        options:
+          - {label: "News", value: "news"}
+          - {label: "Presentations", value: "presentations"}
+          - {label: "Creative Work", value: "creative-work"}
+          - {label: "Teaching", value: "teaching"}
+          - {label: "Resources", value: "resources"}
+          - {label: "En Español", value: "en-espanol"}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Featured Image Alt Text", name: "featured_image_alt", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
