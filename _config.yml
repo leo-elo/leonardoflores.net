@@ -6,6 +6,7 @@ baseurl: ""
 # Build
 markdown: kramdown
 highlighter: rouge
+future: true
 
 # Pagination (disabled globally, enabled per-page)
 pagination:
