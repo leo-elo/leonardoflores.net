@@ -63,110 +63,12 @@
             transition: color 0.3s ease, transform 0.3s ease;
             user-select: none;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-decoration: none;
         }
 
         .accordion-label:hover {
             color: #FDE801;
             transform: translateX(10px);
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal.active {
-            display: flex;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content {
-            background: var(--color-background-alt);
-            border-left: 4px solid #FDE801;
-            border-radius: 8px;
-            padding: 3rem;
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            animation: slideUp 0.3s ease;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 2rem;
-            color: #999;
-            cursor: pointer;
-            background: none;
-            border: none;
-            line-height: 1;
-            padding: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .modal-close:hover {
-            color: #FDE801;
-        }
-
-        .modal-content h2 {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            color: #000;
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: var(--color-text);
-        }
-
-        .modal-content a {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #FDE801;
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .modal-content a:hover {
-            background-color: var(--color-primary);
-            color: white;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         @media (max-width: 1024px) {
@@ -181,14 +83,6 @@
 
             .landing-image {
                 max-height: calc(100vh - 200px);
-            }
-
-            .modal-content {
-                padding: 2rem;
-            }
-
-            .modal-content h2 {
-                font-size: 2rem;
             }
         }
 
@@ -219,19 +113,6 @@
                 max-height: 50vh;
                 order: 1;
             }
-
-            .modal-content {
-                padding: 1.5rem;
-                width: 85%;
-            }
-
-            .modal-content h2 {
-                font-size: 1.75rem;
-            }
-
-            .modal-content p {
-                font-size: 1rem;
-            }
         }
     </style>
 </head>
@@ -241,100 +122,17 @@
     <div class="landing-container">
         <div class="image-accordion-wrapper">
             <div class="accordion-labels">
-                <div class="accordion-label" data-section="leader">Leader</div>
-                <div class="accordion-label" data-section="scholar">Scholar</div>
-                <div class="accordion-label" data-section="educator">Educator</div>
-                <div class="accordion-label" data-section="creator">Creator</div>
+                <a class="accordion-label" href="{{ '/leader.html' | relative_url }}">Leader</a>
+                <a class="accordion-label" href="{{ '/blog.html' | relative_url }}">Scholar</a>
+                <a class="accordion-label" href="{{ '/courses/' | relative_url }}">Educator</a>
+                <a class="accordion-label" href="{{ '/creator.html' | relative_url }}">Creator</a>
             </div>
             <img src="{{ '/images/cyberleo2026.png' | relative_url }}" alt="Leonardo Flores" class="landing-image">
-        </div>
-    </div>
-
-    <!-- Modals -->
-    <div class="modal" data-modal="scholar">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <h2>Scholar</h2>
-            <p>I am a Professor of English at Appalachian State University. My research areas are electronic literature, digital writing, and Artificial Intelligence. See my blog for posts on my teaching, research, presentations, and related activities.</p>
-            <a href="{{ '/blog.html' | relative_url }}">Blog</a>
-        </div>
-    </div>
-
-    <div class="modal" data-modal="leader">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <h2>Leader</h2>
-            <p>Learn about my extensive leadership experience as a department chair, associate dean, professional organization president, and project manager.</p>
-            <a href="{{ '/leader.html' | relative_url }}">Explore My Leadership →</a>
-        </div>
-    </div>
-
-    <div class="modal" data-modal="creator">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <h2>Creator</h2>
-            <p>Learn about my cyborg writing, creative coding, emoji-driven narratives, activist creative works, and more.</p>
-            <a href="{{ '/creator.html' | relative_url }}">Explore My Creative Work →</a>
-        </div>
-    </div>
-
-    <div class="modal" data-modal="educator">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <h2>Educator</h2>
-            <p>My courses have detailed public websites and are presented as resources for the community. They are licensed for use and adaptation.</p>
-            <a href="{{ '/courses/' | relative_url }}">See My Courses</a>
         </div>
     </div>
 
     {% include footer.html %}
 
     <script src="{{ '/js/search.js' | relative_url }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const labels = document.querySelectorAll('.accordion-label');
-            const modals = document.querySelectorAll('.modal');
-            const closeButtons = document.querySelectorAll('.modal-close');
-
-            // Open modal when label is clicked
-            labels.forEach(label => {
-                label.addEventListener('click', function() {
-                    const section = this.getAttribute('data-section');
-                    const modal = document.querySelector(`.modal[data-modal="${section}"]`);
-                    if (modal) {
-                        modal.classList.add('active');
-                    }
-                });
-            });
-
-            // Close modal when close button is clicked
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const modal = this.closest('.modal');
-                    if (modal) {
-                        modal.classList.remove('active');
-                    }
-                });
-            });
-
-            // Close modal when clicking outside the modal content
-            modals.forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === modal) {
-                        modal.classList.remove('active');
-                    }
-                });
-            });
-
-            // Close modal on Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    modals.forEach(modal => {
-                        modal.classList.remove('active');
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
