@@ -29,6 +29,7 @@ category_names:
 # Plugins
 plugins:
   - jekyll-paginate-v2
+  - jekyll-feed
 
 # Exclude from build
 exclude:
