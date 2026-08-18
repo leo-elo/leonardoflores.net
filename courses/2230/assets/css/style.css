@@ -246,7 +246,7 @@ img {
 /* ===== Home Page ===== */
 .home-banner {
   width: 100%;
-  min-height: 400px;
+  min-height: 220px;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -531,7 +531,7 @@ img {
   }
 
   .home-banner {
-    min-height: 320px;
+    min-height: 180px;
   }
 }
 
