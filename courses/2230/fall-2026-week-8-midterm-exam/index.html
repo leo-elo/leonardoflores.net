@@ -69,6 +69,7 @@
   </aside>
 
   <main class="main-content">
+
 <div class="banner" style="background-image: url('/courses/2230/assets/uploads/sites/6/2026/week8header.png');">
   <div class="banner-overlay">
     <h1 class="banner-title">Week 8: Midterm Exam</h1>
@@ -83,11 +84,10 @@
 </ul>
 <h2>Assignment (for next class):</h2>
 <ul>
- 	<li>Read <a href="https://welcometopinepoint.com/" target="_blank" rel="noopener">&#8220;Welcome to Pine Point&#8221;</a></li>
+ 	<li>Read &#8220;<a href="https://www.nfb.ca/interactive/welcome_to_pine_point" target="_blank" rel="noopener">Welcome to Pine Point</a>&#8221;</li>
  	<li>Write a response to this work, focusing on how the work uses interactivity and integrates multimedia to support its intended effect on readers.</li>
 </ul>
 </article>
-
 
     <footer class="site-footer">
       <p>&copy; 2026 Introduction to Digital Literature &mdash; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0 Creative Commons Attribution 4.0 International</a></p>
@@ -100,8 +100,6 @@
     const o = document.getElementById('sidebar-overlay');
     h.addEventListener('click', () => { s.classList.toggle('open'); o.classList.toggle('open'); h.classList.toggle('open'); });
     o.addEventListener('click', () => { s.classList.remove('open'); o.classList.remove('open'); h.classList.remove('open'); });
-
-    // Promo modal
     document.querySelectorAll('.promo-trigger').forEach(function(a) {
       a.addEventListener('click', function(e) {
         e.preventDefault();
@@ -120,7 +118,6 @@
       if (e.key === 'Escape') document.getElementById('promoModal').classList.remove('active');
     });
   </script>
-
   <div class="promo-modal" id="promoModal">
     <button class="promo-modal-close" id="promoClose">&times;</button>
     <img src="" id="promoImg" alt="Course Promo">

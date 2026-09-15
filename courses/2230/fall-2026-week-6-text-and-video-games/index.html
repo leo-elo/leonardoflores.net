@@ -69,6 +69,7 @@
   </aside>
 
   <main class="main-content">
+
 <div class="banner" style="background-image: url('/courses/2230/assets/uploads/sites/6/2026/week6header.png');">
   <div class="banner-overlay">
     <h1 class="banner-title">Week 6: Text and Video Games</h1>
@@ -80,7 +81,7 @@
 <ul>
  	<li>Discuss Twine Games</li>
  	<li>&#8220;Colossal Cave Adventure&#8221; by Will Crowther and Don Woods</li>
- 	<li>&#8220;Galatea&#8221; by Emily Short (click &#8220;play online&#8221;, check out the walk throughs after playing)</li>
+ 	<li>&#8220;<a href="https://ifdb.org/viewgame?id=urxrv27t7qtu52lb" target="_blank" rel="noopener">Galatea</a>&#8221; by Emily Short (click &#8220;play online&#8221;, check out the walk throughs after playing)</li>
 </ul>
 <h2>Assignment (for next class):</h2>
 <ul>
@@ -90,22 +91,21 @@
 <h1>Thursday, September 24</h1>
 <h2>In class:</h2>
 <ul>
- 	<li>Concept: &#8220;Procedural Rhetoric&#8221;</li>
- 	<li>&#8220;Thoughts and Prayers: The Game&#8221; by Mike Lacher</li>
- 	<li>&#8220;Donkey Kong: Pauline Edition&#8221; by Mike Mika</li>
- 	<li>&#8220;A Slow Year&#8221; by Ian Bogost</li>
- 	<li>&#8220;Dwarf Fortress&#8221; by Tarn Adams and Zach Adams</li>
- 	<li>&#8220;UNDER A STAR CALLED SUN&#8221; by Cecile Richard</li>
- 	<li>&#8220;Lines of Force&#8221; by Eugenio Tisselli</li>
+ 	<li>Concept: &#8220;<a href="https://en.wikipedia.org/wiki/Procedural_rhetoric" target="_blank" rel="noopener">Procedural Rhetoric</a>&#8221;</li>
+ 	<li>&#8220;<a href="https://collection.eliterature.org/4/thoughts-and-prayers-the-game" target="_blank" rel="noopener">Thoughts and Prayers: The Game</a>&#8221; by Mike Lacher</li>
+ 	<li>&#8220;<a href="https://arstechnica.com/gaming/2013/03/dad-hacks-donkey-kong-for-his-daughter-princess-pauline-now-saves-mario/" target="_blank" rel="noopener">Donkey Kong: Pauline Edition</a>&#8221; by Mike Mika</li>
+ 	<li>&#8220;<a href="https://collection.eliterature.org/4/a-slow-year" target="_blank" rel="noopener">A Slow Year</a>&#8221; by Ian Bogost</li>
+ 	<li>&#8220;<a href="https://collection.eliterature.org/3/work.html?work=dwarf-fortress" target="_blank" rel="noopener">Dwarf Fortress</a>&#8221; by Tarn Adams and Zach Adams</li>
+ 	<li>&#8220;<a href="https://haraiva.itch.io/under-a-star-called-sun" target="_blank" rel="noopener">UNDER A STAR CALLED SUN</a>&#8221; by Cecile Richard</li>
+ 	<li>&#8220;<a href="http://www.motorhueso.net/wuwei/lines-of-force/" target="_blank" rel="noopener">Lines of Force</a>&#8221; by Eugenio Tisselli</li>
 </ul>
 <h2>Assignment (for next class):</h2>
 <ul>
- 	<li>Play &#8220;Lines of Force&#8221; by Eugenio Tisselli</li>
- 	<li>Play &#8220;UNDER A STAR CALLED SUN&#8221; by Cecile Richard</li>
+ 	<li>Play &#8220;<a href="http://www.motorhueso.net/wuwei/lines-of-force/" target="_blank" rel="noopener">Lines of Force</a>&#8221; by Eugenio Tisselli</li>
+ 	<li>Play &#8220;<a href="https://haraiva.itch.io/under-a-star-called-sun" target="_blank" rel="noopener">UNDER A STAR CALLED SUN</a>&#8221; by Cecile Richard</li>
  	<li>Write a post in which you analyze the procedural rhetoric of these two games and how their mechanics help develop the themes and ideas the authors wished to express. Post before our next class.</li>
 </ul>
 </article>
-
 
     <footer class="site-footer">
       <p>&copy; 2026 Introduction to Digital Literature &mdash; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0 Creative Commons Attribution 4.0 International</a></p>
@@ -118,8 +118,6 @@
     const o = document.getElementById('sidebar-overlay');
     h.addEventListener('click', () => { s.classList.toggle('open'); o.classList.toggle('open'); h.classList.toggle('open'); });
     o.addEventListener('click', () => { s.classList.remove('open'); o.classList.remove('open'); h.classList.remove('open'); });
-
-    // Promo modal
     document.querySelectorAll('.promo-trigger').forEach(function(a) {
       a.addEventListener('click', function(e) {
         e.preventDefault();
@@ -138,7 +136,6 @@
       if (e.key === 'Escape') document.getElementById('promoModal').classList.remove('active');
     });
   </script>
-
   <div class="promo-modal" id="promoModal">
     <button class="promo-modal-close" id="promoClose">&times;</button>
     <img src="" id="promoImg" alt="Course Promo">

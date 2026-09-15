@@ -69,6 +69,7 @@
   </aside>
 
   <main class="main-content">
+
 <div class="banner" style="background-image: url('/courses/2230/assets/uploads/sites/6/2026/week5header.png');">
   <div class="banner-overlay">
     <h1 class="banner-title">Week 5: Hypertext and Interactivity</h1>
@@ -79,32 +80,31 @@
 <h2>In class:</h2>
 <ul>
  	<li><a href="/courses/2230/creative-project-1-generative-writing/">Creative Project #1</a> drafts</li>
- 	<li><a href="https://en.wikipedia.org/wiki/Choose_Your_Own_Adventure" target="_blank" rel="noopener">Wikipedia entry on Choose Your Own Adventure books</a></li>
- 	<li><em>Underground Kingdom</em> by Edward Packard</li>
- 	<li><a href="https://www.eastgate.com/" target="_blank" rel="noopener">Eastgate Systems website</a></li>
- 	<li>&#8220;Uncle Roger&#8221; by Judy Malloy</li>
+ 	<li>Wikipedia entry on <a href="https://en.wikipedia.org/wiki/Choose_Your_Own_Adventure" target="_blank" rel="noopener">Choose Your Own Adventure</a> books</li>
+ 	<li><a href="https://epdf.tips/underground-kingdom-choose-your-own-adventure-no-18.html" target="_blank" rel="noopener"><em>Underground Kingdom</em></a> by Edward Packard</li>
+ 	<li><a href="http://www.eastgate.com/" target="_blank" rel="noopener">Eastgate Systems</a> website</li>
+ 	<li>&#8220;<a href="https://collection.eliterature.org/3/work.html?work=uncle-roger" target="_blank" rel="noopener">Uncle Roger</a>&#8221; by Judy Malloy</li>
 </ul>
 <h2>Assignment (for next class):</h2>
 <ul>
- 	<li>Read &#8220;Patterns of Hypertext&#8221; by Mark Bernstein</li>
- 	<li>Finish Reading &#8220;Uncle Roger&#8221; by Judy Malloy</li>
- 	<li>Read &#8220;My Body: A Wunderkammer&#8221; by Shelley Jackson taking note of your reading choices: where you began, where you went, when you reached a sense of an ending.</li>
+ 	<li>Read &#8220;<a href="https://www.eastgate.com/patterns/" target="_blank" rel="noopener">Patterns of Hypertext</a>&#8221; by Mark Bernstein</li>
+ 	<li>Finish Reading &#8220;<a href="https://collection.eliterature.org/3/work.html?work=uncle-roger" target="_blank" rel="noopener">Uncle Roger</a>&#8221; by Judy Malloy</li>
+ 	<li>Read &#8220;<a href="https://collection.eliterature.org/1/works/jackson__my_body_a_wunderkammer.html" target="_blank" rel="noopener">My Body: A Wunderkammer</a>&#8221; by Shelley Jackson taking note of your reading choices: where you began, where you went, when you reached a sense of an ending.</li>
  	<li>Write a brief discussion of your reading of &#8220;My Body&#8221; in which you discuss how you explored this hypertext. Post before our next class.</li>
 </ul>
 <h1>Thursday, September 17</h1>
 <h2>In class:</h2>
 <ul>
- 	<li>&#8220;My Body: A Wunderkammer&#8221; by Shelley Jackson</li>
- 	<li>&#8220;The Hunt for the Gay Planet&#8221; by Anna Anthropy</li>
+ 	<li>&#8220;<a href="https://collection.eliterature.org/1/works/jackson__my_body_a_wunderkammer.html" target="_blank" rel="noopener">My Body: A Wunderkammer</a>&#8221; by Shelley Jackson</li>
+ 	<li>&#8220;<a href="https://collection.eliterature.org/3/work.html?work=hunt-for-the-gay-planet" target="_blank" rel="noopener">The Hunt for the Gay Planet</a>&#8221; by Anna Anthropy</li>
 </ul>
 <h2>Assignment (for next class):</h2>
 <ul>
- 	<li>Read one of the Twine games published in the <a href="https://collection.eliterature.org/3/" target="_blank" rel="noopener">ELC3</a></li>
+ 	<li>Read one of the <a href="https://collection.eliterature.org/3/keyword.html#twine" target="_blank" rel="noopener">Twine games published in the ELC3</a></li>
  	<li>Complete <a href="/courses/2230/creative-project-1-generative-writing/">Creative Project #1</a> &#8211; due Tuesday, Sept. 22.</li>
  	<li>Write a brief discussion of how one of the Twine games you played guided you in the experience of the work. How is such guidance meaningful?</li>
 </ul>
 </article>
-
 
     <footer class="site-footer">
       <p>&copy; 2026 Introduction to Digital Literature &mdash; <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0 Creative Commons Attribution 4.0 International</a></p>
@@ -117,8 +117,6 @@
     const o = document.getElementById('sidebar-overlay');
     h.addEventListener('click', () => { s.classList.toggle('open'); o.classList.toggle('open'); h.classList.toggle('open'); });
     o.addEventListener('click', () => { s.classList.remove('open'); o.classList.remove('open'); h.classList.remove('open'); });
-
-    // Promo modal
     document.querySelectorAll('.promo-trigger').forEach(function(a) {
       a.addEventListener('click', function(e) {
         e.preventDefault();
@@ -137,7 +135,6 @@
       if (e.key === 'Escape') document.getElementById('promoModal').classList.remove('active');
     });
   </script>
-
   <div class="promo-modal" id="promoModal">
     <button class="promo-modal-close" id="promoClose">&times;</button>
     <img src="" id="promoImg" alt="Course Promo">
